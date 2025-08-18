@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Modern Portfolio Design System - Tech Aesthetic */
+
+
+@layer base {
+  :root {
+    /* Background & Surface Colors */
+    --background: 222 84% 3%;
+    --background-secondary: 222 84% 5%;
+    --background-tertiary: 222 74% 8%;
+    --foreground: 210 40% 98%;
+    --foreground-secondary: 210 40% 85%;
+    --foreground-muted: 215 20% 65%;
+
+    /* Card & Surface */
+    --card: 222 84% 4%;
+    --card-foreground: 210 40% 98%;
+    --glass: 222 84% 4% / 0.8;
+    --glass-border: 210 40% 98% / 0.1;
+
+    /* Popover */
+    --popover: 222 84% 4%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Primary Tech Colors */
+    --primary: 193 100% 50%;
+    --primary-foreground: 222 84% 4%;
+    --primary-glow: 193 100% 60%;
+    --primary-dark: 193 100% 35%;
+
+    /* Secondary */
+    --secondary: 222 74% 12%;
+    --secondary-foreground: 210 40% 98%;
+
+    /* Accent Colors */
+    --accent: 270 100% 65%;
+    --accent-foreground: 210 40% 98%;
+    --accent-glow: 270 100% 75%;
+
+    /* Success & Status */
+    --success: 142 76% 50%;
+    --warning: 38 92% 50%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    /* UI Elements */
+    --muted: 222 74% 8%;
+    --muted-foreground: 215 20% 65%;
+    --border: 222 74% 12%;
+    --input: 222 74% 8%;
+    --ring: 193 100% 50%;
+
+    /* Design System Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--primary-glow)) 50%, hsl(var(--accent)) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(var(--card)) 0%, hsl(var(--background-tertiary)) 100%);
+    --gradient-text: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--accent)) 100%);
+
+    /* Shadows & Effects */
+    --shadow-primary: 0 10px 40px hsl(var(--primary) / 0.2);
+    --shadow-accent: 0 10px 40px hsl(var(--accent) / 0.2);
+    --shadow-glass: 0 8px 32px rgba(0, 0, 0, 0.3);
+    --glow-primary: 0 0 40px hsl(var(--primary) / 0.5);
+    --glow-accent: 0 0 40px hsl(var(--accent) / 0.5);
+
+    /* Animation Timings */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-semibold;
+  }
+
+  code {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer components {
+  /* Glass morphism effect */
+  .glass {
+    background: hsl(var(--glass));
+    border: 1px solid hsl(var(--glass-border));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    background: var(--gradient-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Glow effects */
+  .glow-primary {
+    box-shadow: var(--glow-primary);
+  }
+
+  .glow-accent {
+    box-shadow: var(--glow-accent);
+  }
+
+  /* Smooth animations */
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+
+  .transition-spring {
+    transition: var(--transition-spring);
+  }
+
+  /* Hero gradient background */
+  .hero-bg {
+    background: var(--gradient-hero);
+  }
+
+  /* Card gradient */
+  .card-gradient {
+    background: var(--gradient-card);
+  }
+
+  /* Hide scrollbar */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
