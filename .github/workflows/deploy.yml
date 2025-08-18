@@ -35,7 +35,6 @@ jobs:
     name: Deploy
     needs: build
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
 
     steps:
       - name: Download artifact
@@ -43,6 +42,9 @@ jobs:
         with:
           name: production-files
           path: ./dist
+
+      - name: List contents of dist
+        run: ls -la ./dist
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
