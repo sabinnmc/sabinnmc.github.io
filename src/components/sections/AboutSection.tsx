@@ -39,21 +39,21 @@ export const AboutSection = () => {
             </p>
             
             <div className="space-y-4">
-              <h3 className="text-xl font-semibold text-foreground">Professional Approach</h3>
+              <h3 className="text-xl font-semibold text-foreground">{t('about.selfpr.title')}</h3>
               <p className="text-foreground-secondary leading-relaxed">
                 {t('about.selfpr')}
               </p>
             </div>
             
             <div className="space-y-4">
-              <h3 className="text-xl font-semibold text-foreground">Technical Expertise</h3>
+              <h3 className="text-xl font-semibold text-foreground">{t('about.technical.title')}</h3>
               <p className="text-foreground-secondary leading-relaxed">
                 {t('about.technical')}
               </p>
             </div>
 
             <div className="space-y-4">
-              <h3 className="text-xl font-semibold text-foreground">Why Japan?</h3>
+              <h3 className="text-xl font-semibold text-foreground">{t('about.japan.title')}</h3>
               <p className="text-foreground-secondary leading-relaxed">
                 {t('about.japan')}
               </p>

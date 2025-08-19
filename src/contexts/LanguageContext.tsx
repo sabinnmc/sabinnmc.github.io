@@ -31,8 +31,11 @@ const translations = {
     // About
     'about.title': 'About Me',
     'about.description': 'I\'m a dedicated embedded systems developer with expertise in microcontroller programming and hardware-software integration. Currently based in Japan, I specialize in IoT development, sensor systems, and embedded applications.',
+    'about.selfpr.title': 'Professional Approach',
     'about.selfpr': 'I enjoy leveraging my analytical skills in project management and actively tackling challenges. I am highly focused and work as a strong team player, valuing professionalism and discipline. Currently specializing in embedded systems development and signal analysis as an IT engineer, I have deep knowledge of both high-voltage and low-voltage systems.',
+    'about.technical.title': 'Technical Expertise',
     'about.technical': 'Throughout my career, I have utilized various software and tools including AutoCAD and ArcGIS for electrical design of transmission line surveys, E2 Studio for embedded programming modules, and LT Spice & CSiEDA5 for circuit design. I have experience leading teams through high-voltage system research and design.',
+    'about.japan.title': 'Why Japan?',
     'about.japan': 'I am drawn to Japan because of the infinite opportunities it offers, especially in technology and engineering. Japan is globally renowned for excellent engineering and innovation, and I want to learn and grow at the forefront of this field. I strongly resonate with Japanese culture that values diligence and discipline.',
     
     // Education
@@ -113,6 +116,8 @@ const translations = {
     // Contact
     'contact.title': 'Get In Touch',
     'contact.description': 'I\'m always interested in new opportunities and interesting projects. Feel free to reach out!',
+    'contact.location.title': 'Location',
+    'contact.location': 'Osaka, Japan',
     'contact.email': 'Email me',
     'contact.linkedin': 'LinkedIn',
     'contact.github': 'GitHub',
@@ -137,8 +142,11 @@ const translations = {
     // About
     'about.title': '私について',
     'about.description': 'マイクロコントローラープログラミングとハードウェア・ソフトウェア統合の専門知識を持つ熱心な組み込みシステム開発者です。現在日本を拠点とし、IoT開発、センサーシステム、組み込みアプリケーションを専門としています。',
+    'about.selfpr.title': 'プロフェッショナルな姿勢',
     'about.selfpr': '私はプロジェクト管理において分析スキルを活かし、課題に積極的に取り組むことを楽しんでいます。非常に集中力があり、強いチームプレイヤーとして、プロ意識と規律を重んじる姿勢を大切にしています。現在、ITエンジニアとして組み込みシステムの開発と信号分析を専門にしており、高電圧および低電圧システムについて深い知識を有しています。',
+    'about.technical.title': '技術的専門知識',
     'about.technical': 'これまでのキャリアでは、AutoCADとArcGISソフトウェアを使用した送電線調査計画の電気設計、E2 Studioソフトウェアを使用した信号解析用の組み込みプログラミングモジュール作成、LT SpiceおよびCSiEDA5ソフトウェアを使用した回路およびデバイスの電気設計など、さまざまなソフトウェアやツールを活用してきました。',
+    'about.japan.title': 'なぜ日本なのか？',
     'about.japan': '日本には無限のチャンスが広がっており、特にテクノロジーとエンジニアリングに対する私の情熱が強く引き寄せられています。日本は世界的に見ても優れたエンジニアリングとイノベーションを誇っており、その最前線で学び、成長したいと考えています。また、勤勉さや規律を大切にする日本の文化に強く共感しています。',
     
     // Education and Certificate
@@ -219,9 +227,11 @@ const translations = {
     // Contact
     'contact.title': 'お問い合わせ',
     'contact.description': '新しい機会や興味深いプロジェクトには常に関心があります。お気軽にご連絡ください！',
+    'contact.location.title': '所在地',
+    'contact.location': '日本、大阪',
     'contact.email': 'メールする',
-    'contact.linkedin': 'LinkedIn',
-    'contact.github': 'GitHub',
+    'contact.linkedin': 'リンクトイン',
+    'contact.github': 'ギットハブ',
   }
 };
 

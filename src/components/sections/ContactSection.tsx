@@ -57,8 +57,8 @@ export const ContactSection = () => {
                       <LuMapPinned className="w-6 h-6 text-primary-foreground" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-foreground">Location</h3>
-                      <p className="text-foreground-secondary">Osaka, Japan</p>
+                      <h3 className="font-semibold text-foreground">{t('contact.location.title')}</h3>
+                      <p className="text-foreground-secondary">{t('contact.location')}</p>
                     </div>
                   </div>
 
