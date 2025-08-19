@@ -1,6 +1,8 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import englishCV from '@/assets/sabin_english_cv.pdf';
+import japaneseCV from '@/assets/sabin_jp_cv.pdf';
 import {  FaGithub, FaLinkedinIn, FaDownload } from 'react-icons/fa6';
 import { LuMail, LuMapPinned } from "react-icons/lu";
 
@@ -88,14 +90,18 @@ export const ContactSection = () => {
                     Download my resume to learn more about my experience and skills.
                   </p>
                   <div className="flex gap-3">
-                    <Button variant="outline" className="flex-1">
-                      <FaDownload className="w-4 h-4" />
-                      English CV
-                    </Button>
-                    <Button variant="outline" className="flex-1">
-                      <FaDownload className="w-4 h-4" />
-                      日本語履歴書
-                    </Button>
+                    <a href={englishCV} download className="flex-1">
+                      <Button variant="outline" className="flex-1">
+                        <FaDownload className="w-4 h-4" />
+                        English CV
+                      </Button>
+                    </a>
+                    <a href={japaneseCV} download className="flex-1">
+                      <Button variant="outline" className="flex-1">
+                        <FaDownload className="w-4 h-4" />
+                        日本語履歴書
+                      </Button>
+                    </a>
                   </div>
                 </div>
               </Card>
