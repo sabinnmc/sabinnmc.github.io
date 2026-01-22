@@ -69,7 +69,7 @@ export const ExperienceSection = () => {
 
                       {/* Achievements */}
                       <div className="space-y-3">
-                        <h4 className="font-medium text-foreground">Key Achievements:</h4>
+                        <h4 className="font-medium text-foreground">{t('experience.present.key_achievements')}:</h4>
                         <ul className="space-y-2">
                           {exp.achievements.map((achievement, achIndex) => (
                             <li key={achIndex} className="flex items-start gap-2 text-sm text-foreground-secondary">

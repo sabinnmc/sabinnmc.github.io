@@ -33,6 +33,7 @@ const translations = {
 
     // Experience
     'experience.title': 'Experience',
+    'experience.present.key_achievements': 'Key Achievements',
     'experience.present': 'Present',
 
     // Contact
@@ -66,6 +67,7 @@ const translations = {
 
     // Experience
     'experience.title': '経験',
+    'experience.present.key_achievements': '主な実績',
     'experience.present': '現在',
 
     // Contact
