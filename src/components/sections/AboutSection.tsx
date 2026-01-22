@@ -1,10 +1,10 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Card } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
 import { LuCodeXml, LuMapPinned, LuCalendar, LuHeart } from "react-icons/lu";
+import { aboutData } from '@/data/portfolioData';
 
 export const AboutSection = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const stats = [
     { icon: LuCodeXml, label: '8+ Years', description: 'Engineering Experience' },
@@ -13,21 +13,12 @@ export const AboutSection = () => {
     { icon: LuHeart, label: 'Embedded Systems', description: 'Specialist' },
   ];
 
-  const interests = [
-    'Full-Stack Development',
-    'Cloud Architecture',
-    'AI/ML Integration',
-    'Japanese Culture',
-    'Photography',
-    'Travel'
-  ];
-
   return (
     <section id="about" className="py-20 relative">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-            <span className="gradient-text">{t('about.title')}</span>
+            <span className="gradient-text">{aboutData.title[language]}</span>
           </h2>
         </div>
 
@@ -35,27 +26,27 @@ export const AboutSection = () => {
           {/* About Content */}
           <div className="space-y-8">
             <p className="text-lg leading-relaxed text-foreground-secondary">
-              {t('about.description')}
+              {aboutData.description[language]}
             </p>
-            
+
             <div className="space-y-4">
-              <h3 className="text-xl font-semibold text-foreground">{t('about.selfpr.title')}</h3>
+              <h3 className="text-xl font-semibold text-foreground">{aboutData.professionalApproach.title[language]}</h3>
               <p className="text-foreground-secondary leading-relaxed">
-                {t('about.selfpr')}
-              </p>
-            </div>
-            
-            <div className="space-y-4">
-              <h3 className="text-xl font-semibold text-foreground">{t('about.technical.title')}</h3>
-              <p className="text-foreground-secondary leading-relaxed">
-                {t('about.technical')}
+                {aboutData.professionalApproach.content[language]}
               </p>
             </div>
 
             <div className="space-y-4">
-              <h3 className="text-xl font-semibold text-foreground">{t('about.japan.title')}</h3>
+              <h3 className="text-xl font-semibold text-foreground">{aboutData.technicalExpertise.title[language]}</h3>
               <p className="text-foreground-secondary leading-relaxed">
-                {t('about.japan')}
+                {aboutData.technicalExpertise.content[language]}
+              </p>
+            </div>
+
+            <div className="space-y-4">
+              <h3 className="text-xl font-semibold text-foreground">{aboutData.whyJapan.title[language]}</h3>
+              <p className="text-foreground-secondary leading-relaxed">
+                {aboutData.whyJapan.content[language]}
               </p>
             </div>
           </div>

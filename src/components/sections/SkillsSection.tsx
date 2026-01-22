@@ -1,54 +1,10 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { FiZap, FiCpu } from "react-icons/fi";
-import { FaCode, FaWrench } from "react-icons/fa6";
+import { skillCategories } from '@/data/portfolioData';
 
 export const SkillsSection = () => {
-  const { t } = useLanguage();
-
-  const skillCategories = [
-    {
-      icon: FiCpu,
-      title: t('skills.embedded'),
-      color: 'text-primary',
-      bgColor: 'bg-primary/10',
-      skills: [
-        'Renesas MCU', 'R7FA6T1AD3CFP', 'ARM Cortex', 'AVR', 'PIC Microcontrollers',
-        'Real-time Systems', 'RTOS', 'Bare Metal Programming', 'IoT Development', 'Sensor Integration'
-      ]
-    },
-    {
-      icon: FiZap,
-      title: t('skills.electrical'),
-      color: 'text-accent',
-      bgColor: 'bg-accent/10',
-      skills: [
-        'High Voltage Systems', 'Power Systems', 'Circuit Analysis', 'Signal Analysis',
-        'Transmission Lines', 'Power Transformers', 'Circuit Breakers', 'Electrical Testing', 'Logic Control Units', 'Hydropower Systems'
-      ]
-    },
-    {
-      icon: FaCode,
-      title: t('skills.software'),
-      color: 'text-success',
-      bgColor: 'bg-success/10',
-      skills: [
-        'C Programming', 'Embedded C', 'Assembly Language', 'HTML/CSS', 'JavaScript',
-        'Python', 'Machine Learning', 'Signal Processing', 'Debugging', 'Version Control'
-      ]
-    },
-    {
-      icon: FaWrench,
-      title: t('skills.tools'),
-      color: 'text-warning',
-      bgColor: 'bg-warning/10',
-      skills: [
-        'E2 Studio', 'LT Spice', 'CSiEDA5', 'AutoCAD', 'ArcGIS',
-        'VS FaCode', 'Oscilloscopes', 'Logic Analyzers', 'Multimeters', 'Power Analyzers'
-      ]
-    }
-  ];
+  const { t, language } = useLanguage();
 
   return (
     <section id="skills" className="py-20 relative">
@@ -61,8 +17,8 @@ export const SkillsSection = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {skillCategories.map((category, index) => (
-            <Card 
-              key={index} 
+            <Card
+              key={index}
               className="p-6 glass border-glass-border group hover:border-primary/50 transition-smooth"
             >
               <div className="space-y-6">
@@ -72,14 +28,14 @@ export const SkillsSection = () => {
                     <category.icon className={`w-7 h-7 ${category.color}`} />
                   </div>
                   <h3 className="text-xl font-semibold text-foreground">
-                    {category.title}
+                    {category.title[language]}
                   </h3>
                 </div>
 
                 {/* Skills Grid */}
                 <div className="space-y-3">
                   {category.skills.map((skill, skillIndex) => (
-                    <div 
+                    <div
                       key={skillIndex}
                       className="flex items-center justify-between p-2 rounded-lg bg-background-secondary/50 hover:bg-background-secondary transition-smooth"
                     >
@@ -90,11 +46,10 @@ export const SkillsSection = () => {
                         {[...Array(5)].map((_, i) => (
                           <div
                             key={i}
-                            className={`w-1.5 h-1.5 rounded-full ${
-                              i < Math.floor(Math.random() * 2) + 3
-                                ? 'bg-primary'
-                                : 'bg-muted'
-                            }`}
+                            className={`w-1.5 h-1.5 rounded-full ${i < Math.floor(Math.random() * 2) + 3
+                              ? 'bg-primary'
+                              : 'bg-muted'
+                              }`}
                           />
                         ))}
                       </div>
@@ -114,7 +69,7 @@ export const SkillsSection = () => {
             </h3>
             <div className="flex flex-wrap justify-center gap-3">
               {['FPGA Development', 'PCB Design', 'Industrial Automation', 'Wireless Communication', 'Power Electronics'].map((skill, index) => (
-                <Badge 
+                <Badge
                   key={index}
                   variant="outline"
                   className="px-4 py-2 border-primary/30 text-primary hover:bg-primary/10 transition-smooth"

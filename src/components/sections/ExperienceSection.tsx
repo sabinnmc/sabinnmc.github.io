@@ -2,75 +2,10 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { LuCalendarDays, LuMapPin, LuBuilding2 } from "react-icons/lu";
+import { experiences } from '@/data/portfolioData';
 
 export const ExperienceSection = () => {
-  const { t } = useLanguage();
-
-  const experiences = [
-    {
-      titleKey: 'experience.pal.title',
-      companyKey: 'experience.pal.company',
-      locationKey: 'experience.pal.location',
-      periodKey: 'experience.pal.period',
-      typeKey: 'experience.pal.type',
-      descriptionKey: 'experience.pal.description',
-      achievementKeys: [
-        'experience.pal.achievement1',
-        'experience.pal.achievement2',
-        'experience.pal.achievement3',
-        'experience.pal.achievement4',
-        'experience.pal.achievement5'
-      ],
-      technologies: ['Renesas MCU', 'R7FA6T1AD3CFP', 'E2 Studio', 'LT SPICE', 'CSiEDA', 'VS Code', 'Machine Learning']
-    },
-    {
-      titleKey: 'experience.cosmic.title',
-      companyKey: 'experience.cosmic.company',
-      locationKey: 'experience.cosmic.location',
-      periodKey: 'experience.cosmic.period',
-      typeKey: 'experience.cosmic.type',
-      descriptionKey: 'experience.cosmic.description',
-      achievementKeys: [
-        'experience.cosmic.achievement1',
-        'experience.cosmic.achievement2',
-        'experience.cosmic.achievement3',
-        'experience.cosmic.achievement4'
-      ],
-      technologies: ['C Programming', 'HTML', 'CSS', 'JavaScript', 'Academic Teaching']
-    },
-    {
-      titleKey: 'experience.admc.title',
-      companyKey: 'experience.admc.company',
-      locationKey: 'experience.admc.location',
-      periodKey: 'experience.admc.period',
-      typeKey: 'experience.admc.type',
-      descriptionKey: 'experience.admc.description',
-      achievementKeys: [
-        'experience.admc.achievement1',
-        'experience.admc.achievement2',
-        'experience.admc.achievement3',
-        'experience.admc.achievement4',
-        'experience.admc.achievement5'
-      ],
-      technologies: ['Power Systems', 'Transmission Lines', 'Electrical Design', 'Project Management', 'Field Surveys']
-    },
-    {
-      titleKey: 'experience.mewa.title',
-      companyKey: 'experience.mewa.company',
-      locationKey: 'experience.mewa.location',
-      periodKey: 'experience.mewa.period',
-      typeKey: 'experience.mewa.type',
-      descriptionKey: 'experience.mewa.description',
-      achievementKeys: [
-        'experience.mewa.achievement1',
-        'experience.mewa.achievement2',
-        'experience.mewa.achievement3',
-        'experience.mewa.achievement4',
-        'experience.mewa.achievement5'
-      ],
-      technologies: ['Hydropower Systems', 'Logic Control Units', 'Circuit Breakers', 'Power Transformers', 'Electrical Testing']
-    }
-  ];
+  const { t, language } = useLanguage();
 
   return (
     <section id="experience" className="py-20 relative">
@@ -85,7 +20,7 @@ export const ExperienceSection = () => {
           <div className="relative">
             {/* Timeline line */}
             <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-accent to-primary opacity-30" />
-            
+
             <div className="space-y-12">
               {experiences.map((exp, index) => (
                 <div key={index} className="relative flex gap-8">
@@ -103,25 +38,25 @@ export const ExperienceSection = () => {
                       <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
                         <div className="space-y-2">
                           <h3 className="text-xl font-semibold text-foreground">
-                            {t(exp.titleKey)}
+                            {exp.title[language]}
                           </h3>
                           <div className="flex items-center gap-2 text-primary font-medium">
                             <LuBuilding2 className="w-4 h-4" />
-                            {t(exp.companyKey)}
+                            {exp.company[language]}
                           </div>
                         </div>
                         <div className="flex flex-col lg:items-end gap-2">
                           <Badge variant="outline" className="w-fit border-primary/30 text-primary">
-                            {t(exp.typeKey)}
+                            {exp.type[language]}
                           </Badge>
                           <div className="flex items-center gap-4 text-sm text-foreground-muted">
                             <div className="flex items-center gap-1">
                               <LuCalendarDays className="w-4 h-4" />
-                              {t(exp.periodKey)}
+                              {exp.period[language]}
                             </div>
                             <div className="flex items-center gap-1">
                               <LuMapPin className="w-4 h-4" />
-                              {t(exp.locationKey)}
+                              {exp.location[language]}
                             </div>
                           </div>
                         </div>
@@ -129,17 +64,17 @@ export const ExperienceSection = () => {
 
                       {/* Description */}
                       <p className="text-foreground-secondary leading-relaxed">
-                        {t(exp.descriptionKey)}
+                        {exp.description[language]}
                       </p>
 
                       {/* Achievements */}
                       <div className="space-y-3">
                         <h4 className="font-medium text-foreground">Key Achievements:</h4>
                         <ul className="space-y-2">
-                          {exp.achievementKeys.map((achievementKey, achIndex) => (
+                          {exp.achievements.map((achievement, achIndex) => (
                             <li key={achIndex} className="flex items-start gap-2 text-sm text-foreground-secondary">
                               <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0" />
-                              {t(achievementKey)}
+                              {achievement[language]}
                             </li>
                           ))}
                         </ul>
@@ -148,8 +83,8 @@ export const ExperienceSection = () => {
                       {/* Technologies */}
                       <div className="flex flex-wrap gap-2 pt-2">
                         {exp.technologies.map((tech, techIndex) => (
-                          <Badge 
-                            key={techIndex} 
+                          <Badge
+                            key={techIndex}
                             variant="secondary"
                             className="text-xs bg-background-secondary/50"
                           >

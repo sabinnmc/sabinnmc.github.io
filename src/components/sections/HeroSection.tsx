@@ -1,11 +1,12 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
-import {  FaGithub, FaLinkedinIn, FaArrowDown } from 'react-icons/fa6';
+import { FaGithub, FaLinkedinIn, FaArrowDown } from 'react-icons/fa6';
 import { LuMail } from "react-icons/lu";
 import heroPortrait from '@/assets/hero-portrait.jpg';
+import { heroData } from '@/data/portfolioData';
 
 export const HeroSection = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   const scrollToProjects = () => {
     document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
@@ -19,7 +20,7 @@ export const HeroSection = () => {
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 hero-bg opacity-10" />
-      
+
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-primary/20 rounded-full blur-3xl animate-pulse" />
@@ -31,8 +32,8 @@ export const HeroSection = () => {
           {/* Profile Image */}
           <div className="relative">
             <div className="w-80 h-80 rounded-full overflow-hidden shadow-glow-primary">
-              <img 
-                src={heroPortrait} 
+              <img
+                src={heroPortrait}
                 alt="Profile"
                 className="w-full h-full object-cover"
               />
@@ -43,39 +44,39 @@ export const HeroSection = () => {
           {/* Hero Content */}
           <div className="text-center lg:text-left space-y-8 max-w-2xl">
             <div className="space-y-4">
-              <p className="text-lg text-foreground-secondary">{t('hero.greeting')}</p>
+              <p className="text-lg text-foreground-secondary">{heroData.greeting[language]}</p>
               <h1 className="text-5xl lg:text-7xl font-bold">
                 <span className="gradient-text">Sabin Bhandari</span>
               </h1>
               <h2 className="text-2xl lg:text-3xl text-primary font-semibold">
-                {t('hero.title')}
+                {heroData.title[language]}
               </h2>
               <p className="text-lg text-foreground-muted max-w-xl leading-relaxed">
-                {t('hero.subtitle')}
+                {heroData.subtitle[language]}
               </p>
               <div className="flex items-center gap-2 text-accent font-medium justify-center lg:justify-start">
                 <div className="w-2 h-2 bg-accent rounded-full animate-pulse" />
-                {t('hero.location')}
+                {heroData.location[language]}
               </div>
             </div>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button 
-                variant="hero" 
+              <Button
+                variant="hero"
                 size="hero"
                 onClick={scrollToProjects}
                 className="group"
               >
-                {t('hero.cta.projects')}
+                {heroData.ctaProjects[language]}
                 <FaArrowDown className="w-5 h-5 group-hover:translate-y-1 transition-transform" />
               </Button>
-              <Button 
-                variant="outline" 
+              <Button
+                variant="outline"
                 size="hero"
                 onClick={scrollToContact}
               >
-                {t('hero.cta.contact')}
+                {heroData.ctaContact[language]}
               </Button>
             </div>
 
