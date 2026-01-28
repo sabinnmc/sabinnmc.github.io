@@ -1,31 +1,23 @@
 # Sabin Bhandari – Professional Portfolio
 
-[![Website](https://img.shields.io/badge/website-sabinnmc.github.io-blue)](https://sabinnmc.github.io/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+A modern, high-performance portfolio website built with cutting-edge web technologies. This project showcases professional work, skills, and experience through a clean, responsive interface optimized for speed and user experience.
 
-Welcome to the source code of my professional portfolio! I'm **Sabin Bhandari**, an Embedded Systems Developer based in Japan, specializing in IoT, microcontrollers, and hardware-software integration.
+## Features
 
-## 🌐 Quick Links
-- **Website:** [https://sabinnmc.github.io/](https://sabinnmc.github.io/)
-- **LinkedIn:** [linkedin.com/in/sabin-bhandari-nmc](https://linkedin.com/in/sabin-bhandari-nmc)
-- **GitHub:** [github.com/sabinnmc](https://github.com/sabinnmc)
-- **Email:** [sabinnmc@gmail.com](mailto:sabinnmc@gmail.com)
+- **High Performance:** Built with Vite and Tailwind CSS 4 for optimal load times and runtime performance
+- **Centralized Content Management:** Structured data architecture enables easy updates to projects, skills, and professional experience
+- **Modern Architecture:** Component-based design with global state management for language and theme preferences
+- **Production-Ready:** Optimized build configuration for deployment
 
-
-## ✨ Key Features
-- **🌍 Bilingual Support:** Seamlessly toggle between English and Japanese.
-- **📱 Responsive Design:** Fully optimized for mobile, tablet, and desktop viewing.
-- **🚀 Ultra Fast:** Built with Vite and Tailwind CSS 4 for peak performance.
-- **🏗️ Structured Content:** Centralized data management for easy updates to projects, skills, and experience.
-
-
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
-Make sure you have **[Bun](https://bun.sh/)** or **[Node.js](https://nodejs.org/)** installed on your system.
+Ensure you have **[Bun](https://bun.sh/)** or **[Node.js](https://nodejs.org/)** installed on your system.
 
-### 1. Install Dependencies
+### Installation
+
+Install project dependencies using your preferred package manager:
 
 ```bash
 # Using Bun (recommended)
@@ -35,7 +27,9 @@ bun install
 npm install
 ```
 
-### 2. Run in Development Mode
+### Development
+
+Run the development server with hot module replacement:
 
 ```bash
 # Using Bun
@@ -45,28 +39,56 @@ bun run dev
 npm run dev
 ```
 
-### Build for Production
+### Production Build
+
+Generate an optimized production build:
 
 ```bash
-# Create a production build
 bun run build
 ```
 
+## Project Structure
 
-## 📂 Project Structure
-- `src/components/` - UI components divided by sections.
-- `src/data/` - Centralized portfolio data (edit `portfolioData.ts` to update content).
-- `src/contexts/` - Global states (Language, Theme).
-- `src/assets/` - Images, CVs, and other static assets.
+```
+src/
+├── components/     # Reusable UI components organized by section
+├── data/          # Centralized portfolio data (edit portfolioData.ts)
+├── contexts/      # Global state management (Language, Theme)
+└── assets/        # Static resources (images, documents, etc.)
+```
 
+## Deployment
 
-## 🚢 Deployment to GitHub Pages
+### GitHub Pages Deployment
 
-1. Generate a **Personal Access Token (PAT)** from your GitHub account settings.
-2. In your project repository, go to **Settings** → **Secrets and variables** → **Actions**, and add a new secret:
-   - Name it `GH_PAT`
-   - Paste your token as the value.
-3. Keep the `.github/workflows/deploy.yml` updated.
-4. Go to the **Actions** tab and re-run the workflow to deploy the site.
+Follow these steps to deploy your portfolio to GitHub Pages:
 
-**Happy Hacking! 🚀**
+1. **Generate Personal Access Token**
+   - Navigate to GitHub Settings → Developer settings → Personal access tokens
+   - Generate a new token with appropriate repository permissions
+
+2. **Configure Repository Secret**
+   - Go to your repository Settings → Secrets and variables → Actions
+   - Create a new repository secret:
+     - Name: `GH_PAT`
+     - Value: Your generated personal access token
+
+3. **Verify Workflow Configuration**
+   - Ensure `.github/workflows/deploy.yml` is properly configured
+   - Review the workflow file for any environment-specific adjustments
+
+4. **Deploy**
+   - Navigate to the Actions tab in your repository
+   - Manually trigger the deployment workflow or push to the main branch
+
+## Development
+
+To modify portfolio content, edit the centralized data file located at `src/data/portfolioData.ts`. The component-based architecture ensures changes propagate automatically throughout the application.
+
+## License
+
+This project is available for personal and commercial use.
+
+---
+
+**Developed by Sabin Bhandari**
