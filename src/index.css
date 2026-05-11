@@ -21,6 +21,10 @@
   --color-border: hsl(var(--border));
   --color-input: hsl(var(--input));
   --color-ring: hsl(var(--ring));
+  --color-success: hsl(var(--success));
+  --color-warning: hsl(var(--warning));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
 }
 
 /* Modern Portfolio Design System - Tech Aesthetic */
@@ -156,7 +160,7 @@
   }
 
   /* Glow effects */
-  .glow-primary {
+  .glow-primary, .shadow-glow-primary {
     box-shadow: var(--glow-primary);
   }
 
@@ -176,6 +180,11 @@
   /* Hero gradient background */
   .hero-bg {
     background: var(--gradient-hero);
+  }
+
+  /* Primary gradient background */
+  .bg-gradient-primary {
+    background: var(--gradient-primary);
   }
 
   /* Card gradient */
