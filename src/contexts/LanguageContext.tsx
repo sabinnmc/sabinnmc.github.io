@@ -31,6 +31,11 @@ const translations = {
     'projects.view': 'View Project',
     'projects.code': 'View Code',
 
+    // Hero CTAs
+    'hero.hire': 'Hire Me',
+    'hero.contact': 'Contact Me',
+    'hero.explore': 'Explore Projects',
+
     // Experience
     'experience.title': 'Experience',
     'experience.present.key_achievements': 'Key Achievements',
@@ -64,6 +69,11 @@ const translations = {
     'projects.title': '主要プロジェクト',
     'projects.view': 'プロジェクトを見る',
     'projects.code': 'コードを見る',
+
+    // Hero CTAs
+    'hero.hire': '採用する',
+    'hero.contact': 'お問い合わせ',
+    'hero.explore': 'プロジェクトを探る',
 
     // Experience
     'experience.title': '経験',

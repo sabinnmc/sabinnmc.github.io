@@ -5,7 +5,7 @@ import { LuMail } from "react-icons/lu";
 import { heroData } from '@/data/portfolioData';
 
 export const HeroSection = () => {
-  const { language } = useLanguage();
+  const { language, t } = useLanguage();
 
   const scrollToProjects = () => {
     document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
@@ -64,7 +64,7 @@ export const HeroSection = () => {
             >
               <a href="mailto:sabinnmc@gmail.com?subject=Job%20Inquiry%20-%20Sabin%20Bhandari" className="flex items-center justify-center gap-2.5">
                 <FaBriefcase className="w-5 h-5" />
-                Hire Me
+                {t('hero.hire')}
               </a>
             </Button>
             
@@ -74,7 +74,7 @@ export const HeroSection = () => {
               onClick={scrollToContact}
               className="hover:border-emerald-400/80 hover:bg-white/10 text-white font-semibold shadow-lg shadow-black/10 hover:shadow-emerald-500/10 hover:-translate-y-1 transform transition-all duration-300 px-10 backdrop-blur-md rounded-full"
             >
-              Contact Me
+              {t('hero.contact')}
             </Button>
           </div>
 
@@ -102,7 +102,7 @@ export const HeroSection = () => {
               onClick={scrollToProjects}
               className="group flex flex-col items-center gap-2 text-foreground-muted hover:text-primary text-xs font-semibold tracking-wider uppercase transition-colors duration-300 mt-6"
             >
-              <span>Explore Projects</span>
+              <span>{t('hero.explore')}</span>
               <FaArrowDown className="w-4 h-4 group-hover:translate-y-1.5 transition-transform duration-300 text-primary animate-bounce mt-1" />
             </button>
           </div>

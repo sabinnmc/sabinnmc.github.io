@@ -38,7 +38,7 @@ const Index = () => {
         <footer className="py-8 border-t border-glass-border">
           <div className="container mx-auto px-6 text-center">
             <p className="text-foreground-muted text-sm">
-              © 2024 Sabin Bhandari - Developer.
+              © {new Date().getFullYear()} Sabin Bhandari - Developer.
             </p>
           </div>
         </footer>

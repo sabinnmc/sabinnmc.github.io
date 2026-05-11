@@ -9,9 +9,14 @@ export const Flag: React.FC = () => {
         
         {/* Floating Flag Badge Container */}
         <div className="relative flex items-center gap-2 bg-slate-950/80 border border-white/10 backdrop-blur-md px-3.5 py-2 rounded-full shadow-2xl hover:border-primary/40 hover:scale-105 active:scale-95 transition-all duration-300">
-          <span className="text-xs font-semibold tracking-wide text-slate-200 group-hover:text-primary transition-colors duration-300">
-            Nepal
-          </span>
+          <div className="flex flex-col items-start leading-none">
+            <span className="text-[8px] font-semibold uppercase tracking-widest text-slate-500 group-hover:text-primary/60 transition-colors duration-300">
+              Origin
+            </span>
+            <span className="text-xs font-semibold tracking-wide text-slate-200 group-hover:text-primary transition-colors duration-300">
+              Nepal
+            </span>
+          </div>
           <span className="text-2xl animate-pulse" style={{ animationDuration: '3s' }}>
             🇳🇵
           </span>
@@ -19,7 +24,7 @@ export const Flag: React.FC = () => {
 
         {/* Hover Tooltip */}
         <div className="absolute bottom-12 right-0 bg-slate-950/95 border border-white/15 backdrop-blur-md text-slate-100 text-[11px] font-medium px-3 py-1.5 rounded-lg shadow-xl opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 whitespace-nowrap">
-          Proudly Nepali 🇳🇵
+          🇳🇵 From Nepal — Based in Japan
         </div>
       </div>
     </div>
