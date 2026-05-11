@@ -1,12 +1,11 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
-import { FaGithub, FaLinkedinIn, FaArrowDown } from 'react-icons/fa6';
+import { FaGithub, FaLinkedinIn, FaArrowDown, FaBriefcase } from 'react-icons/fa6';
 import { LuMail } from "react-icons/lu";
-import heroPortrait from '@/assets/hero-portrait.jpg';
 import { heroData } from '@/data/portfolioData';
 
 export const HeroSection = () => {
-  const { t, language } = useLanguage();
+  const { language } = useLanguage();
 
   const scrollToProjects = () => {
     document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
@@ -17,94 +16,98 @@ export const HeroSection = () => {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
-      {/* Background gradient */}
-      <div className="absolute inset-0 hero-bg opacity-10" />
-
-      {/* Animated background elements */}
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+      {/* Background gradients */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-primary/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/20 rounded-full blur-3xl animate-pulse delay-1000" />
+        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '8s' }} />
+        <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-accent/10 rounded-full blur-3xl animate-pulse delay-2000" style={{ animationDuration: '10s' }} />
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-          {/* Profile Image */}
-          <div className="relative">
-            <div className="w-80 h-80 rounded-full overflow-hidden shadow-glow-primary">
-              <img
-                src={heroPortrait}
-                alt="Profile"
-                className="w-full h-full object-cover"
-              />
-            </div>
-            <div className="absolute inset-0 rounded-full border-2 border-primary/30" />
+      <div className="container mx-auto px-6 relative z-10 py-12">
+        <div className="flex flex-col items-center text-center space-y-10 max-w-4xl mx-auto">
+          
+          {/* Tagline Badge with animate-reveal */}
+          <div className="animate-reveal inline-flex items-center gap-2 bg-white/5 border border-white/10 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase text-primary shadow-lg shadow-black/20">
+            <span className="w-2 h-2 bg-primary rounded-full animate-ping" />
+            {heroData.greeting[language]}
           </div>
 
-          {/* Hero Content */}
-          <div className="text-center lg:text-left space-y-8 max-w-2xl">
-            <div className="space-y-4">
-              <p className="text-lg text-foreground-secondary">{heroData.greeting[language]}</p>
-              <h1 className="text-5xl lg:text-7xl font-bold">
-                <span className="gradient-text">Sabin Bhandari</span>
-              </h1>
-              <h2 className="text-2xl lg:text-3xl text-primary font-semibold">
-                {heroData.title[language]}
-              </h2>
-              <p className="text-lg text-foreground-muted max-w-xl leading-relaxed">
-                {heroData.subtitle[language]}
-              </p>
-              <div className="flex items-center gap-2 text-accent font-medium justify-center lg:justify-start">
-                <div className="w-2 h-2 bg-accent rounded-full animate-pulse" />
-                {heroData.location[language]}
-              </div>
-            </div>
+          {/* Animated Name and Subtitles */}
+          <div className="space-y-6">
+            <h1 className="text-6xl sm:text-7xl lg:text-8xl font-extrabold tracking-tight select-none leading-none animate-reveal-delay-1">
+              <span className="gradient-text animate-gradient-shifting bg-gradient-to-r from-cyan-400 via-sky-300 to-indigo-400 bg-[size:200%_auto] text-transparent bg-clip-text drop-shadow-[0_2px_15px_rgba(34,211,238,0.25)]">
+                Sabin Bhandari
+              </span>
+            </h1>
+            
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl text-primary font-bold tracking-wide animate-reveal-delay-2">
+              {heroData.title[language]}
+            </h2>
+            
+            <p className="text-base sm:text-lg text-foreground-muted max-w-2xl mx-auto leading-relaxed font-normal animate-reveal-delay-3">
+              {heroData.subtitle[language]}
+            </p>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Button
-                variant="hero"
-                size="hero"
-                onClick={scrollToProjects}
-                className="group"
-              >
-                {heroData.ctaProjects[language]}
-                <FaArrowDown className="w-5 h-5 group-hover:translate-y-1 transition-transform" />
-              </Button>
-              <Button
-                variant="outline"
-                size="hero"
-                onClick={scrollToContact}
-              >
-                {heroData.ctaContact[language]}
-              </Button>
+            <div className="flex items-center gap-2.5 text-accent font-semibold justify-center text-sm tracking-wide animate-reveal-delay-3 mt-4">
+              <div className="w-2.5 h-2.5 bg-accent rounded-full animate-pulse shadow-[0_0_8px_hsl(var(--accent))]" />
+              {heroData.location[language]}
             </div>
+          </div>
 
-            {/* Social Links */}
-            <div className="flex gap-4 justify-center lg:justify-start">
-              <a href="https://github.com/sabinnmc" target="_blank" rel="noopener noreferrer">
-                <Button variant="glass" size="icon">
+          {/* Redesigned CTA Buttons - Hire Me & Contact Me */}
+          <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto justify-center pt-4 animate-reveal-delay-3">
+            <Button
+              variant="hero"
+              size="hero"
+              asChild
+              className="shimmer-hover bg-gradient-to-r from-cyan-500 via-sky-500 to-blue-600 hover:from-cyan-400 hover:via-sky-400 hover:to-blue-500 text-white font-semibold border border-cyan-400/20 shadow-lg shadow-cyan-500/20 hover:shadow-cyan-400/40 hover:-translate-y-1 transform transition-all duration-300 px-10"
+            >
+              <a href="mailto:sabinnmc@gmail.com?subject=Job%20Inquiry%20-%20Sabin%20Bhandari" className="flex items-center justify-center gap-2.5">
+                <FaBriefcase className="w-5 h-5" />
+                Hire Me
+              </a>
+            </Button>
+            
+            <Button
+              variant="outline"
+              size="hero"
+              onClick={scrollToContact}
+              className="hover:border-cyan-400/80 hover:bg-white/10 text-white font-semibold shadow-lg shadow-black/10 hover:shadow-cyan-500/10 hover:-translate-y-1 transform transition-all duration-300 px-10 backdrop-blur-md"
+            >
+              Contact Me
+            </Button>
+          </div>
+
+          {/* Social Links & More Projects */}
+          <div className="flex flex-col items-center gap-6 pt-4 animate-reveal-delay-3 w-full">
+            <div className="flex gap-4.5 justify-center">
+              <a href="https://github.com/sabinnmc" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform duration-300">
+                <Button variant="glass" size="icon" className="border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:text-primary rounded-full shadow-md">
                   <FaGithub className="w-5 h-5" />
                 </Button>
               </a>
-              <a href="https://linkedin.com/in/sabin-bhandari-nmc" target="_blank" rel="noopener noreferrer">
-                <Button variant="glass" size="icon">
+              <a href="https://linkedin.com/in/sabin-bhandari-nmc" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform duration-300">
+                <Button variant="glass" size="icon" className="border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:text-primary rounded-full shadow-md">
                   <FaLinkedinIn className="w-5 h-5" />
                 </Button>
               </a>
-              <a href="mailto:sabinnmc@gmail.com">
-                <Button variant="glass" size="icon">
+              <a href="mailto:sabinnmc@gmail.com" className="hover:scale-110 transition-transform duration-300">
+                <Button variant="glass" size="icon" className="border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:text-primary rounded-full shadow-md">
                   <LuMail className="w-5 h-5" />
                 </Button>
               </a>
             </div>
-          </div>
-        </div>
-      </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <FaArrowDown className="w-6 h-6 text-foreground-muted" />
+            <button
+              onClick={scrollToProjects}
+              className="group flex flex-col items-center gap-2 text-foreground-muted hover:text-primary text-xs font-semibold tracking-wider uppercase transition-colors duration-300 mt-6"
+            >
+              <span>Explore Projects</span>
+              <FaArrowDown className="w-4 h-4 group-hover:translate-y-1.5 transition-transform duration-300 text-primary animate-bounce mt-1" />
+            </button>
+          </div>
+
+        </div>
       </div>
     </section>
   );

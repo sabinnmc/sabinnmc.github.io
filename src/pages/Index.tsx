@@ -7,31 +7,45 @@ import { SkillsSection } from '@/components/sections/SkillsSection';
 import { ProjectsSection } from '@/components/sections/ProjectsSection';
 import { ExperienceSection } from '@/components/sections/ExperienceSection';
 import { ContactSection } from '@/components/sections/ContactSection';
+import heroPortrait from '@/assets/hero-portrait.jpg';
+import { Flag } from '@/components/Flag';
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
-      <Navigation />
-      <LanguageToggle />
+    <div 
+      className="min-h-screen bg-cover bg-fixed bg-center relative text-foreground font-sans selection:bg-primary/30 selection:text-white overflow-x-hidden"
+      style={{ backgroundImage: `url(${heroPortrait})` }}
+    >
+      {/* Premium dark gradient and backdrop-blur overlay over the entire screen */}
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-950/92 via-slate-950/85 to-black/95 z-0" />
       
-      <main>
-        <HeroSection />
-        <AboutSection />
-        <EducationSection />
-        <SkillsSection />
-        <ProjectsSection />
-        <ExperienceSection />
-        <ContactSection />
-      </main>
-      
-      {/* Footer */}
-      <footer className="py-8 border-t border-glass-border">
-        <div className="container mx-auto px-6 text-center">
-          <p className="text-foreground-muted text-sm">
-            © 2024 Sabin Bhandari - Developer.
-          </p>
-        </div>
-      </footer>
+      {/* Page Content Wrapper */}
+      <div className="relative z-10">
+        <Navigation />
+        <LanguageToggle />
+        
+        <main>
+          <HeroSection />
+          <AboutSection />
+          <EducationSection />
+          <SkillsSection />
+          <ProjectsSection />
+          <ExperienceSection />
+          <ContactSection />
+        </main>
+        
+        {/* Footer */}
+        <footer className="py-8 border-t border-glass-border">
+          <div className="container mx-auto px-6 text-center">
+            <p className="text-foreground-muted text-sm">
+              © 2024 Sabin Bhandari - Developer.
+            </p>
+          </div>
+        </footer>
+      </div>
+
+      {/* Fixed Nepali Flag floating at the bottom-right corner */}
+      <Flag />
     </div>
   );
 };

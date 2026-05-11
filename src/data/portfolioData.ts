@@ -19,6 +19,10 @@ export interface SkillCategory {
 export interface Project {
     title: LocalizedString;
     description: LocalizedString;
+    bullets: {
+        en: string[];
+        jp: string[];
+    };
     image: string;
     technologies: string[];
     github: string;
@@ -87,6 +91,20 @@ export const projects: Project[] = [
             en: 'Innovative device for detecting human blind spots in large cranes using OpenCV and fisheye image processing for real-time safety monitoring.',
             jp: 'OpenCVと魚眼画像処理を使用して、大型クレーンの死角にいる人間を検知し、リアルタイムで安全を監視する革新的なデバイス。'
         },
+        bullets: {
+            en: [
+                'Engineered real-time human blind spot detection systems using OpenCV algorithms.',
+                'Processed wide-angle fisheye lens inputs with dynamic distortion correction.',
+                'Designed for rugged, large-scale construction crane environments.',
+                'Improved site safety margins and visual monitoring coverage significantly.'
+            ],
+            jp: [
+                'OpenCVアルゴリズムを用いたリアルタイム人物死角検知システムの構築。',
+                '歪み補正処理を施した魚眼レンズ映像による広視野角の画像解析。',
+                '過酷な大型建設用クレーン環境に適した高耐久仕様設計。',
+                '現場の安全性向上と広範囲なリアルタイム監視による視認性の最大化。'
+            ]
+        },
         image: has2ProjectThumbnail,
         technologies: ['OpenCV', 'Computer Vision', 'Embedded Systems', 'Image Processing', 'Fisheye Correction'],
         github: '',
@@ -96,6 +114,20 @@ export const projects: Project[] = [
     {
         title: { en: 'AI Chat Application', jp: 'AIチャットアプリケーション' },
         description: { en: 'Real-time chat application with AI-powered translation for Japanese and English communication.', jp: '日本語と英語のコミュニケーションを支援するAI翻訳機能を備えたリアルタイムチャットアプリ。' },
+        bullets: {
+            en: [
+                'Implemented instant messaging synchronization using WebSockets.',
+                'Integrated OpenAI API for high-accuracy English-Japanese translation.',
+                'Utilized Supabase for reactive database architecture and user auth.',
+                'Built fully responsive, fast interface with Next.js and TypeScript.'
+            ],
+            jp: [
+                'WebSocketを利用した瞬時双方向メッセージ同期。',
+                '高精度な英日・日英翻訳のためのOpenAI APIの統合。',
+                'Supabaseによるリアクティブなデータベース設計と安全なユーザー認証。',
+                'Next.jsおよびTypeScriptによる高速でレスポンシブなユーザー体験。'
+            ]
+        },
         image: 'https://images.unsplash.com/photo-1587560699334-cc4ff634909a?w=500&h=300&fit=crop',
         technologies: ['Next.js', 'OpenAI', 'WebSocket', 'Supabase', 'TypeScript'],
         github: 'https://github.com',
@@ -105,6 +137,20 @@ export const projects: Project[] = [
     {
         title: { en: 'Task Management System', jp: 'タスク管理システム' },
         description: { en: 'Collaborative project management tool with Kanban boards and team analytics.', jp: 'カンバンボードとチーム分析機能を備えた共同プロジェクト管理ツール。' },
+        bullets: {
+            en: [
+                'Built interactive drag-and-drop Kanban boards for fluid workflow tracking.',
+                'Designed dynamic team performance and workflow analytics charts.',
+                'Configured Socket.io for immediate collaboration synchronization.',
+                'Structured scalable data storage using optimized MongoDB collections.'
+            ],
+            jp: [
+                'ドラッグ＆ドロップ操作が可能な、直感的なカンバンボードの実装。',
+                'チーム全体の生産性とタスク進捗状況のダイナミックチャート分析。',
+                'Socket.ioによる複数ユーザー間のコラボレーション瞬時同期。',
+                'MongoDBによるスケーラブルなデータベース設計とクエリの最適化。'
+            ]
+        },
         image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=500&h=300&fit=crop',
         technologies: ['Vue.js', 'Express.js', 'MongoDB', 'Socket.io', 'Docker'],
         github: 'https://github.com',
@@ -114,6 +160,20 @@ export const projects: Project[] = [
     {
         title: { en: 'Weather Analytics Dashboard', jp: '気象分析ダッシュボード' },
         description: { en: 'Real-time weather data visualization with predictive analytics for Japanese cities.', jp: '日本の各都市の予測分析機能を備えたリアルタイムの気象データ可視化ツール。' },
+        bullets: {
+            en: [
+                'Visualized historical and real-time weather datasets with dynamic D3.js.',
+                'Implemented predictive weather forecasting algorithms with Python/FastAPI.',
+                'Optimized response caching via high-performance Redis database.',
+                'Provided intuitive geographical data mapping and charts for main cities.'
+            ],
+            jp: [
+                'D3.jsを用いたインタラクティブな気象データのリアルタイム可視化。',
+                'PythonおよびFastAPIによる気象予測アルゴリズムと高性能API設計。',
+                'Redisインメモリデータベースによる応答の高速化とキャッシュ最適化。',
+                '主要な日本都市の地理情報と統合されたグラフィカルデータマッピング。'
+            ]
+        },
         image: 'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=500&h=300&fit=crop',
         technologies: ['React', 'D3.js', 'Python', 'FastAPI', 'Redis'],
         github: 'https://github.com',
