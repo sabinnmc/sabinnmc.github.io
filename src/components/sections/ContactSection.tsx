@@ -1,13 +1,71 @@
+import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { useToast } from '@/hooks/use-toast';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import englishCV from '@/assets/sabin_english_cv.pdf';
 import japaneseCV from '@/assets/sabin_jp_cv.pdf';
-import {  FaGithub, FaLinkedinIn, FaDownload } from 'react-icons/fa6';
-import { LuMail, LuMapPinned } from "react-icons/lu";
+import { FaGithub, FaLinkedinIn, FaDownload } from 'react-icons/fa6';
+import { LuMail, LuMapPinned, LuLoader } from "react-icons/lu";
 
 export const ContactSection = () => {
   const { t } = useLanguage();
+  const { toast } = useToast();
+
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { id, value } = e.target;
+    setFormData((prev) => ({ ...prev, [id]: value }));
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!formData.name || !formData.email || !formData.subject || !formData.message) {
+      toast({
+        title: "Validation Error",
+        description: "Please fill out all fields in the contact form.",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    setTimeout(() => {
+      setIsSubmitting(false);
+
+      toast({
+        title: "Message Prepared!",
+        description: "Opening your mail client to send the pre-filled message safely. Thank you!",
+        variant: "default"
+      });
+
+      // Construct highly professional mailto link
+      const mailtoUrl = `mailto:sabinnmc@gmail.com?subject=${encodeURIComponent(
+        formData.subject
+      )}&body=${encodeURIComponent(
+        `Hi Sabin,\n\n${formData.message}\n\nBest regards,\n${formData.name}\nEmail: ${formData.email}`
+      )}`;
+
+      window.location.href = mailtoUrl;
+
+      // Reset form fields
+      setFormData({
+        name: '',
+        email: '',
+        subject: '',
+        message: ''
+      });
+    }, 1200);
+  };
 
   const contactMethods = [
     {
@@ -82,7 +140,7 @@ export const ContactSection = () => {
                 </div>
               </Card>
 
-              {/* FaDownload Resume */}
+              {/* Download Resume */}
               <Card className="p-6 glass border-glass-border">
                 <div className="text-center space-y-4">
                   <h3 className="text-lg font-semibold text-foreground">Resume / CV</h3>
@@ -91,13 +149,13 @@ export const ContactSection = () => {
                   </p>
                   <div className="flex gap-3">
                     <a href={englishCV} download className="flex-1">
-                      <Button variant="outline" className="flex-1">
+                      <Button variant="outline" className="w-full flex items-center justify-center gap-2">
                         <FaDownload className="w-4 h-4" />
                         English CV
                       </Button>
                     </a>
                     <a href={japaneseCV} download className="flex-1">
-                      <Button variant="outline" className="flex-1">
+                      <Button variant="outline" className="w-full flex items-center justify-center gap-2">
                         <FaDownload className="w-4 h-4" />
                         日本語履歴書
                       </Button>
@@ -109,7 +167,7 @@ export const ContactSection = () => {
 
             {/* Contact Form */}
             <Card className="p-8 glass border-glass-border">
-              <form className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="space-y-2">
                   <label htmlFor="name" className="text-sm font-medium text-foreground">
                     Name
@@ -118,8 +176,11 @@ export const ContactSection = () => {
                     type="text"
                     id="name"
                     autoComplete="name"
-                    className="w-full p-3 rounded-lg bg-background-secondary border border-glass-border focus:border-primary/50 focus:outline-none transition-smooth"
+                    value={formData.name}
+                    onChange={handleChange}
+                    className="w-full p-3 rounded-lg bg-background-secondary border border-glass-border focus:border-primary/50 focus:outline-none transition-smooth text-foreground"
                     placeholder="Your name"
+                    disabled={isSubmitting}
                   />
                 </div>
 
@@ -131,8 +192,11 @@ export const ContactSection = () => {
                     type="email"
                     id="email"
                     autoComplete="email"
-                    className="w-full p-3 rounded-lg bg-background-secondary border border-glass-border focus:border-primary/50 focus:outline-none transition-smooth"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="w-full p-3 rounded-lg bg-background-secondary border border-glass-border focus:border-primary/50 focus:outline-none transition-smooth text-foreground"
                     placeholder="your.email@example.com"
+                    disabled={isSubmitting}
                   />
                 </div>
 
@@ -144,8 +208,11 @@ export const ContactSection = () => {
                     type="text"
                     id="subject"
                     autoComplete="off"
-                    className="w-full p-3 rounded-lg bg-background-secondary border border-glass-border focus:border-primary/50 focus:outline-none transition-smooth"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    className="w-full p-3 rounded-lg bg-background-secondary border border-glass-border focus:border-primary/50 focus:outline-none transition-smooth text-foreground"
                     placeholder="Project collaboration"
+                    disabled={isSubmitting}
                   />
                 </div>
 
@@ -156,14 +223,26 @@ export const ContactSection = () => {
                   <textarea
                     id="message"
                     rows={5}
-                    className="w-full p-3 rounded-lg bg-background-secondary border border-glass-border focus:border-primary/50 focus:outline-none transition-smooth resize-none"
-                    placeholder="[This feature is not implemented. Please Contact me via mail]..."
+                    value={formData.message}
+                    onChange={handleChange}
+                    className="w-full p-3 rounded-lg bg-background-secondary border border-glass-border focus:border-primary/50 focus:outline-none transition-smooth resize-none text-foreground"
+                    placeholder="How can I help you?"
+                    disabled={isSubmitting}
                   />
                 </div>
 
-                <Button type="submit" className="w-full" size="lg">
-                  <LuMail className="w-5 h-5" />
-                  Send Message
+                <Button type="submit" className="w-full flex items-center justify-center gap-2" size="lg" disabled={isSubmitting}>
+                  {isSubmitting ? (
+                    <>
+                      <LuLoader className="w-5 h-5 animate-spin text-primary" />
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      <LuMail className="w-5 h-5" />
+                      Send Message
+                    </>
+                  )}
                 </Button>
               </form>
             </Card>

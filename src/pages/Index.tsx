@@ -17,7 +17,7 @@ const Index = () => {
       style={{ backgroundImage: `url(${heroPortrait})` }}
     >
       {/* Premium dark gradient and backdrop-blur overlay over the entire screen */}
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-950/92 via-slate-950/85 to-black/95 z-0" />
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-950/85 via-slate-950/75 to-black/90 z-0" />
       
       {/* Page Content Wrapper */}
       <div className="relative z-10">

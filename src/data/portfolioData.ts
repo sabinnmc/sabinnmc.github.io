@@ -8,12 +8,17 @@ export type LocalizedString = {
     jp: string;
 };
 
+export interface Skill {
+    name: string;
+    level: number;
+}
+
 export interface SkillCategory {
     icon: IconType;
     title: LocalizedString;
     color: string;
     bgColor: string;
-    skills: string[];
+    skills: Skill[];
 }
 
 export interface Project {
@@ -48,8 +53,16 @@ export const skillCategories: SkillCategory[] = [
         color: 'text-primary',
         bgColor: 'bg-primary/10',
         skills: [
-            'Renesas MCU', 'R7FA6T1AD3CFP', 'ARM Cortex', 'AVR', 'PIC Microcontrollers',
-            'Real-time Systems', 'RTOS', 'Bare Metal Programming', 'IoT Development', 'Sensor Integration'
+            { name: 'Renesas MCU', level: 5 },
+            { name: 'R7FA6T1AD3CFP', level: 5 },
+            { name: 'ARM Cortex', level: 4 },
+            { name: 'AVR', level: 4 },
+            { name: 'PIC Microcontrollers', level: 4 },
+            { name: 'Real-time Systems', level: 4 },
+            { name: 'RTOS', level: 4 },
+            { name: 'Bare Metal Programming', level: 5 },
+            { name: 'IoT Development', level: 4 },
+            { name: 'Sensor Integration', level: 5 }
         ]
     },
     {
@@ -58,8 +71,16 @@ export const skillCategories: SkillCategory[] = [
         color: 'text-accent',
         bgColor: 'bg-accent/10',
         skills: [
-            'High Voltage Systems', 'Power Systems', 'Circuit Analysis', 'Signal Analysis',
-            'Transmission Lines', 'Power Transformers', 'Circuit Breakers', 'Electrical Testing', 'Logic Control Units', 'Hydropower Systems'
+            { name: 'High Voltage Systems', level: 5 },
+            { name: 'Power Systems', level: 5 },
+            { name: 'Circuit Analysis', level: 5 },
+            { name: 'Signal Analysis', level: 4 },
+            { name: 'Transmission Lines', level: 5 },
+            { name: 'Power Transformers', level: 4 },
+            { name: 'Circuit Breakers', level: 4 },
+            { name: 'Electrical Testing', level: 5 },
+            { name: 'Logic Control Units', level: 4 },
+            { name: 'Hydropower Systems', level: 4 }
         ]
     },
     {
@@ -68,8 +89,16 @@ export const skillCategories: SkillCategory[] = [
         color: 'text-success',
         bgColor: 'bg-success/10',
         skills: [
-            'C Programming', 'Embedded C', 'Assembly Language', 'HTML/CSS', 'JavaScript',
-            'Python', 'Machine Learning', 'Signal Processing', 'Debugging', 'Version Control'
+            { name: 'C Programming', level: 5 },
+            { name: 'Embedded C', level: 5 },
+            { name: 'Assembly Language', level: 3 },
+            { name: 'HTML/CSS', level: 4 },
+            { name: 'JavaScript', level: 4 },
+            { name: 'Python', level: 4 },
+            { name: 'Machine Learning', level: 3 },
+            { name: 'Signal Processing', level: 4 },
+            { name: 'Debugging', level: 5 },
+            { name: 'Version Control', level: 4 }
         ]
     },
     {
@@ -78,8 +107,16 @@ export const skillCategories: SkillCategory[] = [
         color: 'text-warning',
         bgColor: 'bg-warning/10',
         skills: [
-            'E2 Studio', 'LT Spice', 'CSiEDA5', 'AutoCAD', 'ArcGIS',
-            'VS Code', 'Oscilloscopes', 'Logic Analyzers', 'Multimeters', 'Power Analyzers'
+            { name: 'E2 Studio', level: 5 },
+            { name: 'LT Spice', level: 5 },
+            { name: 'CSiEDA5', level: 4 },
+            { name: 'AutoCAD', level: 4 },
+            { name: 'ArcGIS', level: 4 },
+            { name: 'VS Code', level: 5 },
+            { name: 'Oscilloscopes', level: 5 },
+            { name: 'Logic Analyzers', level: 4 },
+            { name: 'Multimeters', level: 5 },
+            { name: 'Power Analyzers', level: 4 }
         ]
     }
 ];
@@ -130,8 +167,8 @@ export const projects: Project[] = [
         },
         image: 'https://images.unsplash.com/photo-1587560699334-cc4ff634909a?w=500&h=300&fit=crop',
         technologies: ['Next.js', 'OpenAI', 'WebSocket', 'Supabase', 'TypeScript'],
-        github: 'https://github.com',
-        demo: 'https://demo.com',
+        github: 'https://github.com/sabinnmc',
+        demo: '',
         featured: true
     },
     {
@@ -153,8 +190,8 @@ export const projects: Project[] = [
         },
         image: 'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=500&h=300&fit=crop',
         technologies: ['Vue.js', 'Express.js', 'MongoDB', 'Socket.io', 'Docker'],
-        github: 'https://github.com',
-        demo: 'https://demo.com',
+        github: 'https://github.com/sabinnmc',
+        demo: '',
         featured: false
     },
     {
@@ -176,8 +213,8 @@ export const projects: Project[] = [
         },
         image: 'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=500&h=300&fit=crop',
         technologies: ['React', 'D3.js', 'Python', 'FastAPI', 'Redis'],
-        github: 'https://github.com',
-        demo: 'https://demo.com',
+        github: 'https://github.com/sabinnmc',
+        demo: '',
         featured: false
     }
 ];

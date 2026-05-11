@@ -40,13 +40,13 @@ export const SkillsSection = () => {
                       className="flex items-center justify-between p-2 rounded-lg bg-background-secondary/50 hover:bg-background-secondary transition-smooth"
                     >
                       <span className="text-sm text-foreground-secondary font-medium">
-                        {skill}
+                        {skill.name}
                       </span>
                       <div className="flex space-x-1">
                         {[...Array(5)].map((_, i) => (
                           <div
                             key={i}
-                            className={`w-1.5 h-1.5 rounded-full ${i < Math.floor(Math.random() * 2) + 3
+                            className={`w-1.5 h-1.5 rounded-full ${i < skill.level
                               ? 'bg-primary'
                               : 'bg-muted'
                               }`}
