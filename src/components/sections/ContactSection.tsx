@@ -117,6 +117,7 @@ export const ContactSection = () => {
                   <input
                     type="text"
                     id="name"
+                    autoComplete="name"
                     className="w-full p-3 rounded-lg bg-background-secondary border border-glass-border focus:border-primary/50 focus:outline-none transition-smooth"
                     placeholder="Your name"
                   />
@@ -129,6 +130,7 @@ export const ContactSection = () => {
                   <input
                     type="email"
                     id="email"
+                    autoComplete="email"
                     className="w-full p-3 rounded-lg bg-background-secondary border border-glass-border focus:border-primary/50 focus:outline-none transition-smooth"
                     placeholder="your.email@example.com"
                   />
@@ -141,6 +143,7 @@ export const ContactSection = () => {
                   <input
                     type="text"
                     id="subject"
+                    autoComplete="off"
                     className="w-full p-3 rounded-lg bg-background-secondary border border-glass-border focus:border-primary/50 focus:outline-none transition-smooth"
                     placeholder="Project collaboration"
                   />
