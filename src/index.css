@@ -25,20 +25,20 @@
     --popover: 222 84% 4%;
     --popover-foreground: 210 40% 98%;
 
-    /* Primary Tech Colors */
-    --primary: 193 100% 50%;
+    /* Primary Tech Colors (System Engineer - Emerald) */
+    --primary: 160 84% 39%;
     --primary-foreground: 222 84% 4%;
-    --primary-glow: 193 100% 60%;
-    --primary-dark: 193 100% 35%;
+    --primary-glow: 160 84% 50%;
+    --primary-dark: 160 84% 20%;
 
     /* Secondary */
     --secondary: 222 74% 12%;
     --secondary-foreground: 210 40% 98%;
 
-    /* Accent Colors */
-    --accent: 270 100% 65%;
+    /* Accent Colors (Humanized - Warm Amber) */
+    --accent: 32 95% 55%;
     --accent-foreground: 210 40% 98%;
-    --accent-glow: 270 100% 75%;
+    --accent-glow: 32 95% 65%;
 
     /* Success & Status */
     --success: 142 76% 50%;
@@ -70,7 +70,7 @@
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-spring: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
 
-    --radius: 0.75rem;
+    --radius: 1.25rem;
 
     --sidebar-background: 0 0% 98%;
 

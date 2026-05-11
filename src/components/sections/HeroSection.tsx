@@ -35,7 +35,7 @@ export const HeroSection = () => {
           {/* Animated Name and Subtitles */}
           <div className="space-y-6">
             <h1 className="text-6xl sm:text-7xl lg:text-8xl font-extrabold tracking-tight select-none leading-none animate-reveal-delay-1">
-              <span className="gradient-text animate-gradient-shifting bg-gradient-to-r from-cyan-400 via-sky-300 to-indigo-400 bg-[size:200%_auto] text-transparent bg-clip-text drop-shadow-[0_2px_15px_rgba(34,211,238,0.25)]">
+              <span className="gradient-text animate-gradient-shifting bg-gradient-to-r from-emerald-400 via-teal-300 to-amber-400 bg-[size:200%_auto] text-transparent bg-clip-text drop-shadow-[0_2px_15px_rgba(52,211,153,0.25)]">
                 Sabin Bhandari
               </span>
             </h1>
@@ -60,7 +60,7 @@ export const HeroSection = () => {
               variant="hero"
               size="hero"
               asChild
-              className="shimmer-hover bg-gradient-to-r from-cyan-500 via-sky-500 to-blue-600 hover:from-cyan-400 hover:via-sky-400 hover:to-blue-500 text-white font-semibold border border-cyan-400/20 shadow-lg shadow-cyan-500/20 hover:shadow-cyan-400/40 hover:-translate-y-1 transform transition-all duration-300 px-10"
+              className="shimmer-hover bg-gradient-to-r from-emerald-500 via-teal-500 to-amber-500 hover:from-emerald-400 hover:via-teal-400 hover:to-amber-400 text-white font-semibold border border-emerald-400/20 shadow-lg shadow-emerald-500/20 hover:shadow-emerald-400/40 hover:-translate-y-1 transform transition-all duration-300 px-10 rounded-full"
             >
               <a href="mailto:sabinnmc@gmail.com?subject=Job%20Inquiry%20-%20Sabin%20Bhandari" className="flex items-center justify-center gap-2.5">
                 <FaBriefcase className="w-5 h-5" />
@@ -72,7 +72,7 @@ export const HeroSection = () => {
               variant="outline"
               size="hero"
               onClick={scrollToContact}
-              className="hover:border-cyan-400/80 hover:bg-white/10 text-white font-semibold shadow-lg shadow-black/10 hover:shadow-cyan-500/10 hover:-translate-y-1 transform transition-all duration-300 px-10 backdrop-blur-md"
+              className="hover:border-emerald-400/80 hover:bg-white/10 text-white font-semibold shadow-lg shadow-black/10 hover:shadow-emerald-500/10 hover:-translate-y-1 transform transition-all duration-300 px-10 backdrop-blur-md rounded-full"
             >
               Contact Me
             </Button>
