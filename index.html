@@ -24,10 +24,154 @@
   <meta name="twitter:image"
     content="http://i1.rgstatic.net/ii/profile.image/653025630748683-1532704851785_Q512/Sabin-Bhandari-2.jpg" />
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="manifest" href="/manifest.json" />
+  <meta name="theme-color" content="#10b981" />
+
+  <!-- Person/Portfolio Structured JSON-LD Data Schema -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Sabin Bhandari",
+      "jobTitle": "Embedded Systems Developer & Electrical Engineer",
+      "url": "https://sabin-bhandari.com.np",
+      "sameAs": [
+        "https://github.com/sabinnmc",
+        "https://linkedin.com/in/sabin-bhandari-nmc"
+      ],
+      "knowsAbout": [
+        "Embedded Systems",
+        "IoT Development",
+        "Microcontrollers",
+        "Electrical Engineering",
+        "C Programming",
+        "Bare Metal Programming",
+        "Signal Analysis"
+      ],
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Pal Giken Co., Ltd."
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Kobe",
+        "addressCountry": "Japan"
+      }
+    }
+  </script>
+
+  <!-- Dynamic Google Analytics integration hook -->
+  <script>
+    window.portfolioGAId = ""; // Set your G-XXXXXXXXXX Measurement ID here to activate GA tracking
+    if (window.portfolioGAId) {
+      const gaScript = document.createElement('script');
+      gaScript.async = true;
+      gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=' + window.portfolioGAId;
+      document.head.appendChild(gaScript);
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', window.portfolioGAId);
+    }
+  </script>
 </head>
 
 <body>
-  <div id="root"></div>
+  <div id="root">
+    <!-- Embedded Systems Style CSS Pulse Loader -->
+    <style>
+      .app-loader-container {
+        position: fixed;
+        inset: 0;
+        background-color: #010512;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        z-index: 99999;
+        font-family: 'Inter', sans-serif;
+      }
+      .chip-loader {
+        width: 80px;
+        height: 80px;
+        border: 4px solid #10b981;
+        border-radius: 12px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 0 35px rgba(16, 185, 129, 0.45);
+        animation: loaderPulse 2.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      }
+      .chip-pin {
+        position: absolute;
+        background-color: #10b981;
+      }
+      .pin-t1 { top: -10px; left: 18px; width: 4px; height: 10px; }
+      .pin-t2 { top: -10px; left: 38px; width: 4px; height: 10px; }
+      .pin-t3 { top: -10px; left: 58px; width: 4px; height: 10px; }
+      .pin-b1 { bottom: -10px; left: 18px; width: 4px; height: 10px; }
+      .pin-b2 { bottom: -10px; left: 38px; width: 4px; height: 10px; }
+      .pin-b3 { bottom: -10px; left: 58px; width: 4px; height: 10px; }
+      .pin-l1 { left: -10px; top: 18px; width: 10px; height: 4px; }
+      .pin-l2 { left: -10px; top: 38px; width: 10px; height: 4px; }
+      .pin-l3 { left: -10px; top: 58px; width: 10px; height: 4px; }
+      .pin-r1 { right: -10px; top: 18px; width: 10px; height: 4px; }
+      .pin-r2 { right: -10px; top: 38px; width: 10px; height: 4px; }
+      .pin-r3 { right: -10px; top: 58px; width: 10px; height: 4px; }
+
+      .chip-core {
+        width: 44px;
+        height: 44px;
+        background: linear-gradient(135deg, #10b981 0%, #f59e0b 100%);
+        border-radius: 6px;
+        animation: spinCore 6s linear infinite;
+        box-shadow: 0 0 15px rgba(245, 158, 11, 0.5);
+      }
+      .loader-text {
+        margin-top: 30px;
+        font-size: 11px;
+        letter-spacing: 0.35em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.75);
+        font-weight: 600;
+        text-shadow: 0 0 10px rgba(16, 185, 129, 0.3);
+        animation: pulseText 1.8s ease-in-out infinite;
+      }
+
+      @keyframes loaderPulse {
+        0%, 100% { transform: scale(1); box-shadow: 0 0 25px rgba(16, 185, 129, 0.35); }
+        50% { transform: scale(1.05); box-shadow: 0 0 45px rgba(16, 185, 129, 0.6); }
+      }
+      @keyframes spinCore {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      @keyframes pulseText {
+        0%, 100% { opacity: 0.45; }
+        50% { opacity: 1; }
+      }
+    </style>
+    <div class="app-loader-container">
+      <div class="chip-loader">
+        <div class="chip-pin pin-t1"></div>
+        <div class="chip-pin pin-t2"></div>
+        <div class="chip-pin pin-t3"></div>
+        <div class="chip-pin pin-b1"></div>
+        <div class="chip-pin pin-b2"></div>
+        <div class="chip-pin pin-b3"></div>
+        <div class="chip-pin pin-l1"></div>
+        <div class="chip-pin pin-l2"></div>
+        <div class="chip-pin pin-l3"></div>
+        <div class="chip-pin pin-r1"></div>
+        <div class="chip-pin pin-r2"></div>
+        <div class="chip-pin pin-r3"></div>
+        <div class="chip-core"></div>
+      </div>
+      <div class="loader-text">Initializing Kernel</div>
+    </div>
+  </div>
   <script type="module" src="/src/main.tsx"></script>
 </body>
 

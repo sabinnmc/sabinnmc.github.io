@@ -1,7 +1,7 @@
 import { IconType } from "react-icons";
 import { FiZap, FiCpu } from "react-icons/fi";
 import { FaCode, FaWrench } from "react-icons/fa6";
-import has2ProjectThumbnail from "@/assets/has2-project.png";
+import has2ProjectThumbnail from "@/assets/has2-project.webp";
 
 export type LocalizedString = {
     en: string;
@@ -376,4 +376,13 @@ export const educationSkills: EducationSkills = {
         'Project Management',
         'Technical Documentation'
     ]
+};
+
+export const contactConfig = {
+    // Obfuscated email using standard base64 encoded string: "sabinnmc@gmail.com"
+    encodedEmail: "c2FiaW5ubWNAZ21haWwuY29t",
+    github: "https://github.com/sabinnmc",
+    linkedin: "https://linkedin.com/in/sabin-bhandari-nmc",
+    location: "Japan",
+    formspreeId: "" // Optional Formspree Form ID (e.g. "xoqpgrzo") to enable direct form submissions
 };

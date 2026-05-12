@@ -1,16 +1,17 @@
 import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { useToast } from '@/hooks/use-toast';
+import { toast } from 'sonner';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import englishCV from '@/assets/sabin_english_cv.pdf';
 import japaneseCV from '@/assets/sabin_jp_cv.pdf';
 import { FaGithub, FaLinkedinIn, FaDownload } from 'react-icons/fa6';
 import { LuMail, LuMapPinned, LuLoader } from "react-icons/lu";
+import { contactConfig } from '@/data/portfolioData';
 
 export const ContactSection = () => {
   const { t } = useLanguage();
-  const { toast } = useToast();
+  const email = atob(contactConfig.encodedEmail);
 
   const [formData, setFormData] = useState({
     name: '',
@@ -25,70 +26,93 @@ export const ContactSection = () => {
     setFormData((prev) => ({ ...prev, [id]: value }));
   };
 
+  const openMailtoFallback = (decodedEmail: string) => {
+    const mailtoUrl = `mailto:${decodedEmail}?subject=${encodeURIComponent(
+      formData.subject
+    )}&body=${encodeURIComponent(
+      `Hi Sabin,\n\n${formData.message}\n\nBest regards,\n${formData.name}\nEmail: ${formData.email}`
+    )}`;
+    window.location.assign(mailtoUrl);
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
     if (!formData.name || !formData.email || !formData.subject || !formData.message) {
-      toast({
-        title: "Validation Error",
-        description: "Please fill out all fields in the contact form.",
-        variant: "destructive"
-      });
+      toast.error("Validation Error: Please fill out all fields in the contact form.");
       return;
     }
 
     setIsSubmitting(true);
 
-    setTimeout(() => {
-      setIsSubmitting(false);
-
-      toast({
-        title: "Message Prepared!",
-        description: "Opening your mail client to send the pre-filled message safely. Thank you!",
-        variant: "default"
+    if (contactConfig.formspreeId) {
+      // POST directly to Formspree endpoint securely
+      fetch(`https://formspree.io/f/${contactConfig.formspreeId}`, {
+        method: "POST",
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(formData)
+      })
+      .then((response) => {
+        setIsSubmitting(false);
+        if (response.ok) {
+          toast.success("Message sent successfully! Thank you.");
+          setFormData({
+            name: '',
+            email: '',
+            subject: '',
+            message: ''
+          });
+        } else {
+          toast.error("Formspree submission failed. Opening email client fallback...");
+          openMailtoFallback(email);
+        }
+      })
+      .catch(() => {
+        setIsSubmitting(false);
+        toast.error("Connection error. Opening email client fallback...");
+        openMailtoFallback(email);
       });
-
-      // Construct highly professional mailto link
-      const mailtoUrl = `mailto:sabinnmc@gmail.com?subject=${encodeURIComponent(
-        formData.subject
-      )}&body=${encodeURIComponent(
-        `Hi Sabin,\n\n${formData.message}\n\nBest regards,\n${formData.name}\nEmail: ${formData.email}`
-      )}`;
-
-      window.location.href = mailtoUrl;
-
-      // Reset form fields
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: ''
-      });
-    }, 1200);
+    } else {
+      // Safe fallback via mailto after a sleek loading state
+      setTimeout(() => {
+        setIsSubmitting(false);
+        toast.success("Opening your mail client safely with your message pre-filled. Thank you!");
+        openMailtoFallback(email);
+        setFormData({
+          name: '',
+          email: '',
+          subject: '',
+          message: ''
+        });
+      }, 1000);
+    }
   };
 
   const contactMethods = [
     {
       icon: LuMail,
       label: t('contact.email'),
-      value: 'sabinnmc@gmail.com',
-      href: 'mailto:sabinnmc@gmail.com',
+      value: email,
+      href: `mailto:${email}`,
       color: 'text-primary',
       bgColor: 'bg-primary/10'
     },
     {
       icon: FaLinkedinIn,
       label: t('contact.linkedin'),
-      value: 'linkedin.com/in/sabin-bhandari-nmc',
-      href: 'https://linkedin.com/in/sabin-bhandari-nmc',
+      value: contactConfig.linkedin.replace('https://', ''),
+      href: contactConfig.linkedin,
       color: 'text-blue-500',
       bgColor: 'bg-blue-500/10'
     },
     {
       icon: FaGithub,
       label: t('contact.github'),
-      value: 'github.com/sabinnmc',
-      href: 'https://github.com/sabinnmc',
+      value: contactConfig.github.replace('https://', ''),
+      href: contactConfig.github,
       color: 'text-foreground',
       bgColor: 'bg-foreground/10'
     }
@@ -126,6 +150,8 @@ export const ContactSection = () => {
                     <a
                       key={index}
                       href={method.href}
+                      target={method.href.startsWith('mailto:') ? undefined : '_blank'}
+                      rel={method.href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
                       className="flex items-center gap-4 p-4 rounded-lg hover:bg-background-secondary/50 transition-smooth group"
                     >
                       <div className={`w-12 h-12 ${method.bgColor} rounded-full flex items-center justify-center group-hover:scale-110 transition-transform`}>
@@ -178,7 +204,7 @@ export const ContactSection = () => {
                     autoComplete="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full p-3 rounded-lg bg-background-secondary border border-glass-border focus:border-primary/50 focus:outline-none transition-smooth text-foreground"
+                    className="w-full p-3 rounded-lg bg-background-secondary border border-glass-border focus:border-primary/50 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:outline-none transition-smooth text-foreground"
                     placeholder="Your name"
                     disabled={isSubmitting}
                   />
@@ -194,7 +220,7 @@ export const ContactSection = () => {
                     autoComplete="email"
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full p-3 rounded-lg bg-background-secondary border border-glass-border focus:border-primary/50 focus:outline-none transition-smooth text-foreground"
+                    className="w-full p-3 rounded-lg bg-background-secondary border border-glass-border focus:border-primary/50 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:outline-none transition-smooth text-foreground"
                     placeholder="your.email@example.com"
                     disabled={isSubmitting}
                   />
@@ -210,7 +236,7 @@ export const ContactSection = () => {
                     autoComplete="off"
                     value={formData.subject}
                     onChange={handleChange}
-                    className="w-full p-3 rounded-lg bg-background-secondary border border-glass-border focus:border-primary/50 focus:outline-none transition-smooth text-foreground"
+                    className="w-full p-3 rounded-lg bg-background-secondary border border-glass-border focus:border-primary/50 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:outline-none transition-smooth text-foreground"
                     placeholder="Project collaboration"
                     disabled={isSubmitting}
                   />
@@ -225,7 +251,7 @@ export const ContactSection = () => {
                     rows={5}
                     value={formData.message}
                     onChange={handleChange}
-                    className="w-full p-3 rounded-lg bg-background-secondary border border-glass-border focus:border-primary/50 focus:outline-none transition-smooth resize-none text-foreground"
+                    className="w-full p-3 rounded-lg bg-background-secondary border border-glass-border focus:border-primary/50 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:outline-none transition-smooth resize-none text-foreground"
                     placeholder="How can I help you?"
                     disabled={isSubmitting}
                   />

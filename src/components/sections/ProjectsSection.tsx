@@ -41,6 +41,7 @@ export const ProjectsSection = () => {
                   <img
                     src={project.image}
                     alt={project.title[language]}
+                    loading="lazy"
                     className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
                   />
                   {/* Visual gradient overlays on image */}

@@ -2,10 +2,11 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { FaGithub, FaLinkedinIn, FaArrowDown, FaBriefcase } from 'react-icons/fa6';
 import { LuMail } from "react-icons/lu";
-import { heroData } from '@/data/portfolioData';
+import { heroData, contactConfig } from '@/data/portfolioData';
 
 export const HeroSection = () => {
   const { language, t } = useLanguage();
+  const email = atob(contactConfig.encodedEmail);
 
   const scrollToProjects = () => {
     document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
@@ -19,8 +20,8 @@ export const HeroSection = () => {
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
       {/* Background gradients */}
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-3xl animate-pulse" style={{ animationDuration: '8s' }} />
-        <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-accent/10 rounded-full blur-3xl animate-pulse delay-2000" style={{ animationDuration: '10s' }} />
+        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-3xl animate-pulse-slow" />
+        <div className="absolute bottom-1/4 right-1/4 w-[600px] h-[600px] bg-accent/10 rounded-full blur-3xl animate-pulse-slower delay-2000" />
       </div>
 
       <div className="container mx-auto px-6 relative z-10 py-12">
@@ -34,7 +35,7 @@ export const HeroSection = () => {
 
           {/* Animated Name and Subtitles */}
           <div className="space-y-6">
-            <h1 className="text-6xl sm:text-7xl lg:text-8xl font-extrabold tracking-tight select-none leading-none animate-reveal-delay-1">
+            <h1 className="text-6xl sm:text-7xl lg:text-8xl font-extrabold tracking-tight leading-none animate-reveal-delay-1">
               <span className="gradient-text animate-gradient-shifting bg-gradient-to-r from-emerald-400 via-teal-300 to-amber-400 bg-[size:200%_auto] text-transparent bg-clip-text drop-shadow-[0_2px_15px_rgba(52,211,153,0.25)]">
                 Sabin Bhandari
               </span>
@@ -62,7 +63,7 @@ export const HeroSection = () => {
               asChild
               className="shimmer-hover bg-gradient-to-r from-emerald-500 via-teal-500 to-amber-500 hover:from-emerald-400 hover:via-teal-400 hover:to-amber-400 text-white font-semibold border border-emerald-400/20 shadow-lg shadow-emerald-500/20 hover:shadow-emerald-400/40 hover:-translate-y-1 transform transition-all duration-300 px-10 rounded-full"
             >
-              <a href="mailto:sabinnmc@gmail.com?subject=Job%20Inquiry%20-%20Sabin%20Bhandari" className="flex items-center justify-center gap-2.5">
+              <a href={`mailto:${email}?subject=Job%20Inquiry%20-%20Sabin%20Bhandari`} className="flex items-center justify-center gap-2.5">
                 <FaBriefcase className="w-5 h-5" />
                 {t('hero.hire')}
               </a>
@@ -81,18 +82,18 @@ export const HeroSection = () => {
           {/* Social Links & More Projects */}
           <div className="flex flex-col items-center gap-6 pt-4 animate-reveal-delay-3 w-full">
             <div className="flex gap-4.5 justify-center">
-              <a href="https://github.com/sabinnmc" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform duration-300">
-                <Button variant="glass" size="icon" className="border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:text-primary rounded-full shadow-md">
+              <a href={contactConfig.github} target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform duration-300" aria-label="GitHub Profile">
+                <Button variant="glass" size="icon" className="border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:text-primary rounded-full shadow-md" aria-label="GitHub Profile">
                   <FaGithub className="w-5 h-5" />
                 </Button>
               </a>
-              <a href="https://linkedin.com/in/sabin-bhandari-nmc" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform duration-300">
-                <Button variant="glass" size="icon" className="border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:text-primary rounded-full shadow-md">
+              <a href={contactConfig.linkedin} target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform duration-300" aria-label="LinkedIn Profile">
+                <Button variant="glass" size="icon" className="border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:text-primary rounded-full shadow-md" aria-label="LinkedIn Profile">
                   <FaLinkedinIn className="w-5 h-5" />
                 </Button>
               </a>
-              <a href="mailto:sabinnmc@gmail.com" className="hover:scale-110 transition-transform duration-300">
-                <Button variant="glass" size="icon" className="border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:text-primary rounded-full shadow-md">
+              <a href={`mailto:${email}`} className="hover:scale-110 transition-transform duration-300" aria-label="Send Email">
+                <Button variant="glass" size="icon" className="border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:text-primary rounded-full shadow-md" aria-label="Send Email">
                   <LuMail className="w-5 h-5" />
                 </Button>
               </a>
