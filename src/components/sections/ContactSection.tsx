@@ -136,13 +136,13 @@ export const ContactSection = () => {
             <div className="space-y-8">
               <Card className="p-8 glass border-glass-border">
                 <div className="space-y-6">
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="w-12 h-12 bg-gradient-primary rounded-full flex items-center justify-center">
-                      <LuMapPinned className="w-6 h-6 text-primary-foreground" />
+                  <div className="flex items-center gap-4 p-4 rounded-lg">
+                    <div className="w-12 h-12 bg-accent/10 rounded-full flex items-center justify-center">
+                      <LuMapPinned className="w-6 h-6 text-accent" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-foreground">{t('contact.location.title')}</h3>
-                      <p className="text-foreground-secondary">{t('contact.location')}</p>
+                      <p className="font-medium text-foreground">{t('contact.location.title')}</p>
+                      <p className="text-sm text-foreground-secondary">{t('contact.location')}</p>
                     </div>
                   </div>
 
