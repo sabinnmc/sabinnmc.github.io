@@ -1,5 +1,4 @@
 import { useLanguage } from '@/contexts/LanguageContext';
-import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { FaGithub, FaEye } from 'react-icons/fa6';
@@ -33,89 +32,87 @@ export const ProjectsSection = () => {
         {/* Featured Projects list with bullet points */}
         <div className="space-y-10 mb-20">
           {featuredProjects.map((project, index) => (
-            <Card key={index} className="group overflow-hidden glass border-white/10 hover:border-emerald-500/30 transition-all duration-500 rounded-2xl shadow-xl shadow-black/40 glass-card-hover">
-              <div className="flex flex-col lg:flex-row">
-                
-                {/* Project Image */}
-                <div className="lg:w-2/5 relative overflow-hidden h-64 lg:h-auto min-h-[260px]">
-                  <img
-                    src={project.image}
-                    alt={project.title[language]}
-                    loading="lazy"
-                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                  />
-                  {/* Visual gradient overlays on image */}
-                  <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-slate-950/90 via-slate-950/40 to-transparent" />
-                  <div className="absolute top-4 left-4 z-10">
-                    <Badge className="bg-emerald-500 text-black font-semibold text-xs tracking-wider uppercase py-1 px-3 shadow-lg shadow-emerald-500/20">
-                      Featured
-                    </Badge>
-                  </div>
-                </div>
-
-                {/* Project Details & Bullets */}
-                <div className="lg:w-3/5 p-8 flex flex-col justify-between space-y-6">
-                  <div className="space-y-4">
-                    <h3 className="text-2xl font-bold text-slate-100 group-hover:text-primary transition-colors duration-300">
-                      {project.title[language]}
-                    </h3>
-                    
-                    {/* Bullet Points Details Layout */}
-                    <ul className="space-y-3.5 pt-2">
-                      {project.bullets[language].map((bullet, bulletIndex) => (
-                        <li key={bulletIndex} className="flex items-start gap-3 text-slate-300 text-sm leading-relaxed">
-                          {/* Sleek Custom Neon Glowing Bullet Indicator */}
-                          <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.85)] animate-pulse" />
-                          <span>{bullet}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* Badges and Actions */}
-                  <div className="space-y-5 pt-3 border-t border-white/5">
-                    <div className="flex flex-wrap gap-2">
-                      {project.technologies.map((tech, techIndex) => (
-                        <Badge
-                          key={techIndex}
-                          variant="secondary"
-                          className="text-xs bg-white/5 text-emerald-300 hover:bg-white/10 transition-colors border border-white/5"
-                        >
-                          {tech}
-                        </Badge>
-                      ))}
-                    </div>
-
-                    <div className="flex flex-wrap gap-3.5">
-                      {project.demo && (
-                        <Button variant="default" size="sm" className="bg-emerald-500 hover:bg-emerald-400 text-black font-semibold flex-1 sm:flex-initial" asChild>
-                          <a href={project.demo} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
-                            <FaEye className="w-4 h-4" />
-                            {t('projects.view')}
-                          </a>
-                        </Button>
-                      )}
-                      {project.github && (
-                        <Button variant="outline" size="sm" className="border-white/15 hover:border-emerald-400 hover:bg-emerald-500/5 text-slate-200 hover:text-white flex-1 sm:flex-initial" asChild>
-                          <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
-                            <FaGithub className="w-4 h-4" />
-                            {t('projects.code')}
-                          </a>
-                        </Button>
-                      )}
-                    </div>
-                  </div>
-
+            <div key={index} className="group overflow-hidden bg-background-tertiary/20 hover:bg-background-tertiary/35 border border-white/5 hover:border-emerald-500/25 transition-all duration-500 rounded-2xl shadow-xl shadow-black/40 flex flex-col lg:flex-row">
+              
+              {/* Project Image */}
+              <div className="lg:w-2/5 relative overflow-hidden h-64 lg:h-auto min-h-[260px]">
+                <img
+                  src={project.image}
+                  alt={project.title[language]}
+                  loading="lazy"
+                  className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                />
+                {/* Visual gradient overlays on image */}
+                <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-slate-950/90 via-slate-950/40 to-transparent" />
+                <div className="absolute top-4 left-4 z-10">
+                  <Badge className="bg-emerald-500 text-black font-semibold text-xs tracking-wider uppercase py-1 px-3 shadow-lg shadow-emerald-500/20">
+                    Featured
+                  </Badge>
                 </div>
               </div>
-            </Card>
+
+              {/* Project Details & Bullets */}
+              <div className="lg:w-3/5 p-8 flex flex-col justify-between space-y-6">
+                <div className="space-y-4">
+                  <h3 className="text-2xl font-bold text-slate-100 group-hover:text-primary transition-colors duration-300">
+                    {project.title[language]}
+                  </h3>
+                  
+                  {/* Bullet Points Details Layout */}
+                  <ul className="space-y-3.5 pt-2">
+                    {project.bullets[language].map((bullet, bulletIndex) => (
+                      <li key={bulletIndex} className="flex items-start gap-3 text-slate-300 text-sm leading-relaxed">
+                        {/* Sleek Custom Neon Glowing Bullet Indicator */}
+                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.85)] animate-pulse" />
+                        <span>{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Badges and Actions */}
+                <div className="space-y-5 pt-3 border-t border-white/5">
+                  <div className="flex flex-wrap gap-2">
+                    {project.technologies.map((tech, techIndex) => (
+                      <Badge
+                        key={techIndex}
+                        variant="secondary"
+                        className="text-xs bg-white/5 text-emerald-300 hover:bg-white/10 transition-colors border border-white/5"
+                      >
+                        {tech}
+                      </Badge>
+                    ))}
+                  </div>
+
+                  <div className="flex flex-wrap gap-3.5">
+                    {project.demo && (
+                      <Button variant="default" size="sm" className="bg-emerald-500 hover:bg-emerald-400 text-black font-semibold flex-1 sm:flex-initial" asChild>
+                        <a href={project.demo} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
+                          <FaEye className="w-4 h-4" />
+                          {t('projects.view')}
+                        </a>
+                      </Button>
+                    )}
+                    {project.github && (
+                      <Button variant="outline" size="sm" className="border-white/15 hover:border-emerald-400 hover:bg-emerald-500/5 text-slate-200 hover:text-white flex-1 sm:flex-initial" asChild>
+                        <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
+                          <FaGithub className="w-4 h-4" />
+                          {t('projects.code')}
+                        </a>
+                      </Button>
+                    )}
+                  </div>
+                </div>
+
+              </div>
+            </div>
           ))}
         </div>
 
         {/* Other Projects Grid with bullet-point layout */}
         <div className="grid md:grid-cols-2 gap-8">
           {otherProjects.map((project, index) => (
-            <Card key={index} className="p-7 glass border-white/10 hover:border-emerald-500/20 transition-all duration-500 rounded-2xl shadow-lg shadow-black/30 glass-card-hover group flex flex-col justify-between">
+            <div key={index} className="p-7 bg-background-tertiary/10 border border-white/5 hover:border-emerald-500/20 hover:bg-background-tertiary/30 transition-all duration-300 rounded-2xl shadow-sm group flex flex-col justify-between hover:translate-y-[-2px]">
               <div className="space-y-6">
                 <div className="flex items-start justify-between gap-4">
                   <h3 className="text-xl font-bold text-slate-100 group-hover:text-primary transition-colors duration-300 leading-tight">
@@ -123,14 +120,14 @@ export const ProjectsSection = () => {
                   </h3>
                   <div className="flex gap-2.5 shrink-0">
                     {project.demo && (
-                      <Button variant="ghost" size="icon" className="w-9 h-9 border border-white/5 hover:border-emerald-400/30 hover:bg-emerald-500/5 hover:text-emerald-400 rounded-full" asChild>
+                      <Button variant="ghost" size="icon" className="w-9 h-9 border border-white/5 hover:border-emerald-400/30 hover:bg-emerald-500/5 hover:text-emerald-400 rounded-full cursor-pointer" asChild>
                         <a href={project.demo} target="_blank" rel="noopener noreferrer">
                           <FaExternalLinkAlt className="w-3.5 h-3.5" />
                         </a>
                       </Button>
                     )}
                     {project.github && (
-                      <Button variant="ghost" size="icon" className="w-9 h-9 border border-white/5 hover:border-emerald-400/30 hover:bg-emerald-500/5 hover:text-emerald-400 rounded-full" asChild>
+                      <Button variant="ghost" size="icon" className="w-9 h-9 border border-white/5 hover:border-emerald-400/30 hover:bg-emerald-500/5 hover:text-emerald-400 rounded-full cursor-pointer" asChild>
                         <a href={project.github} target="_blank" rel="noopener noreferrer">
                           <FaGithub className="w-4 h-4" />
                         </a>
@@ -162,7 +159,7 @@ export const ProjectsSection = () => {
                   </Badge>
                 ))}
               </div>
-            </Card>
+            </div>
           ))}
         </div>
 

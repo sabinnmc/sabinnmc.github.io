@@ -25,6 +25,11 @@ const translations = {
 
     // Skills
     'skills.title': 'Technical Skills',
+    'skills.core_title': 'Core Specialization',
+    'skills.core_subtitle': 'For embedded systems engineering, technical depth matters more than breadth. Here is where my core expertise lies.',
+    'skills.full_inventory': 'Full Technical Inventory',
+    'skills.show_all': 'Explore Full Technical Inventory',
+    'skills.show_less': 'Collapse Technical Inventory',
 
     // Projects
     'projects.title': 'Featured Projects',
@@ -64,6 +69,11 @@ const translations = {
 
     // Skills
     'skills.title': '技術スキル',
+    'skills.core_title': '主要な専門分野',
+    'skills.core_subtitle': '組み込み開発においては、広さよりもコア技術の深さが重要です。以下は私が最も得意とする専門分野です。',
+    'skills.full_inventory': '全技術スキルインベントリ',
+    'skills.show_all': 'すべての技術スキルを表示',
+    'skills.show_less': '技術スキル一覧を折りたたむ',
 
     // Projects
     'projects.title': '主要プロジェクト',
