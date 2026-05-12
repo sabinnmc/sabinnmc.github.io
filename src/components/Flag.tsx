@@ -17,14 +17,14 @@ export const Flag: React.FC = () => {
               Nepal
             </span>
           </div>
-          <span className="text-2xl animate-pulse" style={{ animationDuration: '3s' }}>
+          <span className="text-2xl animate-pulse" style={{ animationDuration: '3s' }} role="img" aria-label="Flag of Nepal">
             🇳🇵
           </span>
         </div>
 
         {/* Hover Tooltip */}
         <div className="absolute bottom-12 right-0 bg-slate-950/95 border border-white/15 backdrop-blur-md text-slate-100 text-[11px] font-medium px-3 py-1.5 rounded-lg shadow-xl opacity-0 translate-y-2 pointer-events-none group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 whitespace-nowrap">
-          🇳🇵 From Nepal — Based in Japan
+          <span role="img" aria-label="Flag of Nepal">🇳🇵</span> From Nepal — Based in Japan
         </div>
       </div>
     </div>

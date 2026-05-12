@@ -25,6 +25,8 @@
   --color-warning: hsl(var(--warning));
   --color-destructive: hsl(var(--destructive));
   --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --animate-pulse-slow: pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-pulse-slower: pulse 10s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 /* Modern Portfolio Design System - Tech Aesthetic */
@@ -38,7 +40,7 @@
     --background-tertiary: 222 74% 8%;
     --foreground: 210 40% 98%;
     --foreground-secondary: 210 40% 85%;
-    --foreground-muted: 215 20% 65%;
+    --foreground-muted: 215 20% 75%;
 
     /* Card & Surface */
     --card: 222 84% 4%;
@@ -73,7 +75,7 @@
 
     /* UI Elements */
     --muted: 222 74% 8%;
-    --muted-foreground: 215 20% 65%;
+    --muted-foreground: 215 20% 75%;
     --border: 222 74% 12%;
     --input: 222 74% 8%;
     --ring: 193 100% 50%;
@@ -326,5 +328,20 @@
     border-color: hsl(var(--primary) / 0.3);
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
     transform: translateY(-2px);
+  }
+}
+
+/* Accessibility: Accommodate users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-delay: -1ms !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    background-attachment: initial !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0s !important;
+    transition-delay: 0s !important;
   }
 }
