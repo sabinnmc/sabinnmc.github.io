@@ -45,7 +45,11 @@
         "Microcontrollers",
         "Electrical Engineering",
         "C Programming",
-        "Bare Metal Programming",
+        "Python",
+        "Computer Vision",
+        "Machine learning"
+        "Linux",
+        "Docker",
         "Signal Analysis"
       ],
       "worksFor": {
@@ -70,13 +74,13 @@
       document.head.appendChild(gaScript);
 
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
+      function gtag() { dataLayer.push(arguments); }
       gtag('js', new Date());
       gtag('config', window.portfolioGAId);
     }
   </script>
-  <script type="module" crossorigin src="./assets/index-CwUOLova.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-BTS7-IvF.css">
+  <script type="module" crossorigin src="./assets/index-DXRrrbpn.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-6dQwtwxD.css">
 </head>
 
 <body>
@@ -94,6 +98,7 @@
         z-index: 99999;
         font-family: 'Inter', sans-serif;
       }
+
       .chip-loader {
         width: 80px;
         height: 80px;
@@ -106,22 +111,95 @@
         box-shadow: 0 0 35px rgba(16, 185, 129, 0.45);
         animation: loaderPulse 2.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
       }
+
       .chip-pin {
         position: absolute;
         background-color: #10b981;
       }
-      .pin-t1 { top: -10px; left: 18px; width: 4px; height: 10px; }
-      .pin-t2 { top: -10px; left: 38px; width: 4px; height: 10px; }
-      .pin-t3 { top: -10px; left: 58px; width: 4px; height: 10px; }
-      .pin-b1 { bottom: -10px; left: 18px; width: 4px; height: 10px; }
-      .pin-b2 { bottom: -10px; left: 38px; width: 4px; height: 10px; }
-      .pin-b3 { bottom: -10px; left: 58px; width: 4px; height: 10px; }
-      .pin-l1 { left: -10px; top: 18px; width: 10px; height: 4px; }
-      .pin-l2 { left: -10px; top: 38px; width: 10px; height: 4px; }
-      .pin-l3 { left: -10px; top: 58px; width: 10px; height: 4px; }
-      .pin-r1 { right: -10px; top: 18px; width: 10px; height: 4px; }
-      .pin-r2 { right: -10px; top: 38px; width: 10px; height: 4px; }
-      .pin-r3 { right: -10px; top: 58px; width: 10px; height: 4px; }
+
+      .pin-t1 {
+        top: -10px;
+        left: 18px;
+        width: 4px;
+        height: 10px;
+      }
+
+      .pin-t2 {
+        top: -10px;
+        left: 38px;
+        width: 4px;
+        height: 10px;
+      }
+
+      .pin-t3 {
+        top: -10px;
+        left: 58px;
+        width: 4px;
+        height: 10px;
+      }
+
+      .pin-b1 {
+        bottom: -10px;
+        left: 18px;
+        width: 4px;
+        height: 10px;
+      }
+
+      .pin-b2 {
+        bottom: -10px;
+        left: 38px;
+        width: 4px;
+        height: 10px;
+      }
+
+      .pin-b3 {
+        bottom: -10px;
+        left: 58px;
+        width: 4px;
+        height: 10px;
+      }
+
+      .pin-l1 {
+        left: -10px;
+        top: 18px;
+        width: 10px;
+        height: 4px;
+      }
+
+      .pin-l2 {
+        left: -10px;
+        top: 38px;
+        width: 10px;
+        height: 4px;
+      }
+
+      .pin-l3 {
+        left: -10px;
+        top: 58px;
+        width: 10px;
+        height: 4px;
+      }
+
+      .pin-r1 {
+        right: -10px;
+        top: 18px;
+        width: 10px;
+        height: 4px;
+      }
+
+      .pin-r2 {
+        right: -10px;
+        top: 38px;
+        width: 10px;
+        height: 4px;
+      }
+
+      .pin-r3 {
+        right: -10px;
+        top: 58px;
+        width: 10px;
+        height: 4px;
+      }
 
       .chip-core {
         width: 44px;
@@ -131,6 +209,7 @@
         animation: spinCore 6s linear infinite;
         box-shadow: 0 0 15px rgba(245, 158, 11, 0.5);
       }
+
       .loader-text {
         margin-top: 30px;
         font-size: 11px;
@@ -143,16 +222,39 @@
       }
 
       @keyframes loaderPulse {
-        0%, 100% { transform: scale(1); box-shadow: 0 0 25px rgba(16, 185, 129, 0.35); }
-        50% { transform: scale(1.05); box-shadow: 0 0 45px rgba(16, 185, 129, 0.6); }
+
+        0%,
+        100% {
+          transform: scale(1);
+          box-shadow: 0 0 25px rgba(16, 185, 129, 0.35);
+        }
+
+        50% {
+          transform: scale(1.05);
+          box-shadow: 0 0 45px rgba(16, 185, 129, 0.6);
+        }
       }
+
       @keyframes spinCore {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
+        0% {
+          transform: rotate(0deg);
+        }
+
+        100% {
+          transform: rotate(360deg);
+        }
       }
+
       @keyframes pulseText {
-        0%, 100% { opacity: 0.45; }
-        50% { opacity: 1; }
+
+        0%,
+        100% {
+          opacity: 0.45;
+        }
+
+        50% {
+          opacity: 1;
+        }
       }
     </style>
     <div class="app-loader-container">
