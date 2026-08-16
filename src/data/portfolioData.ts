@@ -269,8 +269,8 @@ export const educationData: EducationItem[] = [
 ];
 
 export const contactConfig = {
-    // Obfuscated email using standard base64 encoded string: "sabinnmc@gmail.com"
-    encodedEmail: "c2FiaW5ubWNAZ21haWwuY29t",
+    // Obfuscated email using standard base64 encoded string: "bhandari.sabin.nmc@gmail.com"
+    encodedEmail: "YmhhbmRhcmkuc2FiaW4ubm1jQGdtYWlsLmNvbQ==",
     github: "https://github.com/sabinnmc",
     linkedin: "https://linkedin.com/in/sabin-bhandari-nmc",
     location: "Takamatsu, Kagawa, Japan",
