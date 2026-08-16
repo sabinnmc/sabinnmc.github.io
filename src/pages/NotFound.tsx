@@ -86,7 +86,7 @@ const NotFound = () => {
       case "about":
         updatedHistory.push(
           { text: "--- SABIN BHANDARI OVERVIEW ---", type: "success" },
-          { text: "Graduated Electrical Engineer turned Embedded Systems Programmer.", type: "system" },
+          { text: "Electrical engineering graduate turned Embedded System Engineer.", type: "system" },
           { text: "Currently crafting telemetry, signal control, and firmware logic.", type: "system" },
           { text: "Specialized in translating physical circuits into high-performance software code.", type: "system" }
         );

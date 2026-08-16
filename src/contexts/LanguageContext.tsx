@@ -14,7 +14,7 @@ const translations = {
   en: {
     // General
     'common.skip_to_content': 'Skip to content',
-    'footer.role': 'Embedded Systems Engineer',
+    'footer.role': 'Embedded System Engineer',
 
     // Navigation
     'nav.about': 'About',
@@ -25,10 +25,10 @@ const translations = {
     'nav.contact': 'Contact',
 
     // About
-    'about.stats.experience.value': '8+ Years',
+    'about.stats.experience.value': '7+ Years',
     'about.stats.experience.label': 'Engineering Experience',
-    'about.stats.location.value': 'Japan',
-    'about.stats.location.label': 'Based in Japan',
+    'about.stats.location.value': 'Takamatsu',
+    'about.stats.location.label': 'Kagawa, Japan',
     'about.stats.projects.value': '5+',
     'about.stats.projects.label': 'Projects Completed',
     'about.stats.specialty.value': 'Embedded Systems',
@@ -98,7 +98,7 @@ const translations = {
     // Contact
     'contact.title': 'Get In Touch',
     'contact.location.title': 'Location',
-    'contact.location': 'kagawa prefecture, Japan',
+    'contact.location': 'Takamatsu, Kagawa, Japan',
     'contact.email': 'Email',
     'contact.linkedin': 'LinkedIn',
     'contact.github': 'GitHub',
@@ -142,10 +142,10 @@ const translations = {
     'nav.contact': 'お問い合わせ',
 
     // About
-    'about.stats.experience.value': '8年以上',
+    'about.stats.experience.value': '7年以上',
     'about.stats.experience.label': 'エンジニアリング経験',
-    'about.stats.location.value': '日本',
-    'about.stats.location.label': '日本在住',
+    'about.stats.location.value': '高松市',
+    'about.stats.location.label': '香川県（日本）',
     'about.stats.projects.value': '5件以上',
     'about.stats.projects.label': 'プロジェクト実績',
     'about.stats.specialty.value': '組み込みシステム',
@@ -215,7 +215,7 @@ const translations = {
     // Contact
     'contact.title': 'お問い合わせ',
     'contact.location.title': '居住地',
-    'contact.location': '大阪府（日本）',
+    'contact.location': '香川県高松市（日本）',
     'contact.email': 'メールで連絡',
     'contact.linkedin': 'LinkedIn',
     'contact.github': 'GitHub',

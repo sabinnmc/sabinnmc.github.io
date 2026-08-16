@@ -149,16 +149,16 @@ export const projects: Project[] = [
 
 export const experiences: Experience[] = [
     {
-        title: { en: 'Embedded Systems Programmer', jp: '組み込みシステムプログラマー' },
+        title: { en: 'Embedded System Engineer', jp: '組み込みシステムエンジニア' },
         company: { en: 'Pal Giken Co., Ltd.', jp: '株式会社パル技研' },
-        location: { en: 'Japan', jp: '日本' },
+        location: { en: 'Takamatsu, Kagawa, Japan', jp: '日本・香川県高松市' },
         period: { en: '2024 - Present', jp: '2024年～現在' },
         type: { en: 'Full-time', jp: 'フルタイム' },
         description: { en: 'Working on embedded systems development with a team of 40 engineers, focusing on IoT applications, sensor systems, and microcontroller programming.', jp: '40名規模のエンジニアチームで組み込みシステム開発に従事し、IoTアプリケーション、センサーシステム、マイコンプログラミングを中心に担当しています。' },
         achievements: [
             { en: 'Fine tuned RTMPose for 8 keypoint container detection of truck/trailer in real time for parking support on warehouse', jp: '倉庫での駐車支援向けに、トラック／トレーラーの8キーポイントコンテナ検出用RTMPoseをリアルタイムでファインチューニング' },
             { en: 'Multi-Camera Alignment & Calibration: Designed a homography-based system to align dual fisheye camera feeds, enabling precise perspective registration for container tracking.', jp: 'マルチカメラ位置合わせ・キャリブレーション：2台の魚眼カメラ映像を整合するホモグラフィベースのシステムを設計し、コンテナ追跡に必要な高精度な透視変換位置合わせを実現。' },
-            { en: 'Fine-tuning and deploying YOLOX for real-time human detection on fisheye camera images', jp: '魚眼カメラ画像を用いたリアルタイム人物検出向けYOLOXモデルのファインチューニングとデプロイ' },
+            { en: 'Fine-tuned and deployed YOLOX for real-time human detection on fisheye camera images, achieving 74% mAP', jp: '魚眼カメラ画像を用いたリアルタイム人物検出向けYOLOXモデルをファインチューニング・デプロイし、mAP 74%を達成' },
             { en: 'Testing and debugging camera applications for public vehicle image detection systems', jp: '車両画像検出システム向けカメラアプリケーションのテスト・デバッグ' },
             { en: 'Testing automatic object/obstacle detection from cranes using machine learning', jp: '機械学習を用いたクレーン向け物体・障害物自動検知機能のテスト' },
             { en: 'Chattering signal analysis using Renesas microcontrollers and e² studio', jp: 'ルネサス製マイコンとe² studioを用いたチャタリング信号の解析' },
@@ -168,7 +168,7 @@ export const experiences: Experience[] = [
         technologies: ['RTMPose', 'YOLOX', 'Homography', 'Fisheye Cameras', 'Object Tracking', 'Machine Learning', 'Renesas MCU', 'R7FA6T1AD3CFP', 'e² studio', 'LTspice', 'CSiEDA', 'VS Code']
     },
     {
-        title: { en: 'C Programming Instructor', jp: 'C言語講師' },
+        title: { en: 'Educator', jp: '教育者' },
         company: { en: 'Cosmic International Academy', jp: 'Cosmic International Academy' },
         location: { en: 'Nepal', jp: 'ネパール' },
         period: { en: '2021 - 2023', jp: '2021年～2023年' },
@@ -183,7 +183,7 @@ export const experiences: Experience[] = [
         technologies: ['C Programming', 'HTML', 'CSS', 'JavaScript', 'Academic Teaching']
     },
     {
-        title: { en: 'Site Engineer', jp: '現場エンジニア' },
+        title: { en: 'Project Engineer', jp: 'プロジェクトエンジニア' },
         company: { en: 'ADMC Engineering Company', jp: 'ADMC Engineering Company' },
         location: { en: 'Nepal', jp: 'ネパール' },
         period: { en: '2018 - 2020', jp: '2018年～2020年' },
@@ -191,7 +191,7 @@ export const experiences: Experience[] = [
         description: { en: 'Led electrical engineering projects for power transmission systems across Nepal, working with a 20-member engineering team on large-scale infrastructure projects.', jp: 'ネパール各地の送電システムに関する電気工学プロジェクトを主導し、20名規模のエンジニアチームとともに大規模インフラ案件に取り組みました。' },
         achievements: [
             { en: 'Conducted 220kV transmission line tower surveys and design reports', jp: '220kV送電線鉄塔の現地調査および設計報告書の作成' },
-            { en: 'Managed power purchase agreements for 164MW Kaligandaki Hydropower transmission', jp: '164MWカリガンダキ水力発電プロジェクトに関する電力購入契約（PPA）を管理' },
+            { en: 'Conducted site surveys for the 220 kV double-circuit transmission line serving the 164 MW Kaligandaki Gorge Hydroelectric Project', jp: '164MWカリガンダキ・ゴージ水力発電プロジェクト向け220kV複回線送電線の現地調査を実施' },
             { en: 'Surveyed and designed 132kV double circuit transmission lines', jp: '132kV複回線送電線の調査・設計' },
             { en: 'Completed distribution voltage surveys across 18 different cities in Nepal', jp: 'ネパール国内18都市における配電電圧調査' },
             { en: 'Designed 11kV and 33kV primary distribution high voltage lines', jp: '11kVおよび33kVの高圧一次配電線を設計' }
@@ -233,16 +233,16 @@ export interface EducationItem {
 export const heroData: HeroData = {
     name: { en: "Sabin Bhandari", jp: "バンダリ　サビン" },
     greeting: { en: "Hello, I'm", jp: "はじめまして" },
-    title: { en: "Embedded Systems Developer", jp: "組み込みシステムエンジニア" },
+    title: { en: "Embedded System Engineer", jp: "組み込みシステムエンジニア" },
     subtitle: { en: "Embedded systems engineer passionate about IoT, microcontrollers, and hardware-software integration", jp: "IoT、マイコン、ハードウェア／ソフトウェア統合を強みとする組み込みシステムエンジニア" },
-    location: { en: "Based in Japan", jp: "日本を拠点に活動" },
+    location: { en: "Based in Takamatsu, Kagawa", jp: "香川県高松市を拠点に活動" },
     ctaProjects: { en: "View Projects", jp: "プロジェクトを見る" },
     ctaContact: { en: "Get in Touch", jp: "お問い合わせ" }
 };
 
 export const aboutData: AboutData = {
     title: { en: "About Me", jp: "プロフィール" },
-    description: { en: "I'm a dedicated embedded systems developer with expertise in microcontroller programming and hardware-software integration. Currently based in Japan, I specialize in IoT development, sensor systems, and embedded applications.", jp: "マイコンプログラミングとハードウェア／ソフトウェア統合を強みとする組み込みシステムエンジニアです。現在は日本を拠点に、IoT開発、センサーシステム、組み込みアプリケーションを専門としています。" },
+    description: { en: "I'm a dedicated embedded systems engineer with expertise in microcontroller programming and hardware-software integration. Currently based in Takamatsu, Kagawa, I specialize in IoT development, sensor systems, and embedded applications.", jp: "マイコンプログラミングとハードウェア／ソフトウェア統合を強みとする組み込みシステムエンジニアです。現在は香川県高松市を拠点に、IoT開発、センサーシステム、組み込みアプリケーションを専門としています。" },
     professionalApproach: {
         title: { en: "Professional Approach", jp: "仕事への姿勢" },
         content: { en: "I enjoy leveraging my analytical skills in project management and actively tackling challenges. I am highly focused and work as a strong team player, valuing professionalism and discipline. Currently specializing in embedded systems development and signal analysis as an IT engineer, I have deep knowledge of both high-voltage and low-voltage systems.", jp: "プロジェクト管理では分析力を活かし、課題に主体的に取り組みます。高い集中力を保ちながらチームの一員として協働し、プロ意識と規律を重視しています。現在はITエンジニアとして組み込みシステム開発と信号解析を専門としており、高圧・低圧の電気システムに関する深い知識を有しています。" }
@@ -273,6 +273,6 @@ export const contactConfig = {
     encodedEmail: "c2FiaW5ubWNAZ21haWwuY29t",
     github: "https://github.com/sabinnmc",
     linkedin: "https://linkedin.com/in/sabin-bhandari-nmc",
-    location: "Japan",
+    location: "Takamatsu, Kagawa, Japan",
     formspreeId: "" // Optional Formspree Form ID (e.g. "xoqpgrzo") to enable direct form submissions
 };
