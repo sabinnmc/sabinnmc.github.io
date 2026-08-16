@@ -17,7 +17,7 @@ export const ArchitectureSection: React.FC = () => {
       icon: Cpu,
       titleKey: 'arch.card1.title',
       descKey: 'arch.card1.desc',
-      tags: ['FreeRTOS', 'STM32', 'ESP32', 'C/C++', 'Bare-metal HAL'],
+      tags: ['Generative AI', 'LLMs', 'Open Source', 'Python', 'AI for Everyone'],
       accent: 'from-cyan-500/20 to-blue-500/10',
       border: 'hover:border-cyan-500/50',
     },
