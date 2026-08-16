@@ -6,10 +6,10 @@ export const AboutSection = () => {
   const { t, language } = useLanguage();
 
   const stats = [
-    { icon: LuCodeXml, label: '8+ Years', description: 'Engineering Experience' },
-    { icon: LuMapPinned, label: 'Japan', description: 'Based in Japan' },
-    { icon: LuCalendar, label: '20+', description: 'Projects Completed' },
-    { icon: LuHeart, label: 'Embedded Systems', description: 'Specialist' },
+    { icon: LuCodeXml, label: t('about.stats.experience.value'), description: t('about.stats.experience.label') },
+    { icon: LuMapPinned, label: t('about.stats.location.value'), description: t('about.stats.location.label') },
+    { icon: LuCalendar, label: t('about.stats.projects.value'), description: t('about.stats.projects.label') },
+    { icon: LuHeart, label: t('about.stats.specialty.value'), description: t('about.stats.specialty.label') },
   ];
 
   return (
@@ -43,13 +43,6 @@ export const AboutSection = () => {
               <h3 className="text-xl font-semibold text-slate-100">{aboutData.technicalExpertise.title[language]}</h3>
               <p className="text-slate-400 leading-relaxed text-sm">
                 {aboutData.technicalExpertise.content[language]}
-              </p>
-            </div>
-
-            <div className="space-y-4 pl-4 border-l-2 border-emerald-500/30">
-              <h3 className="text-xl font-semibold text-slate-100">{aboutData.whyJapan.title[language]}</h3>
-              <p className="text-slate-400 leading-relaxed text-sm">
-                {aboutData.whyJapan.content[language]}
               </p>
             </div>
           </div>

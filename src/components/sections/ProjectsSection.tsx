@@ -30,7 +30,7 @@ export const ProjectsSection = () => {
         </div>
 
         {/* Featured Projects list with bullet points */}
-        <div className="space-y-10 mb-20">
+        <div className={otherProjects.length > 0 ? 'space-y-10 mb-20' : 'space-y-10'}>
           {featuredProjects.map((project, index) => (
             <div key={index} className="group overflow-hidden bg-background-tertiary/20 hover:bg-background-tertiary/35 border border-white/5 hover:border-emerald-500/25 transition-all duration-500 rounded-2xl shadow-xl shadow-black/40 flex flex-col lg:flex-row">
               
@@ -46,7 +46,7 @@ export const ProjectsSection = () => {
                 <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-slate-950/90 via-slate-950/40 to-transparent" />
                 <div className="absolute top-4 left-4 z-10">
                   <Badge className="bg-emerald-500 text-black font-semibold text-xs tracking-wider uppercase py-1 px-3 shadow-lg shadow-emerald-500/20">
-                    Featured
+                    {t('projects.featured')}
                   </Badge>
                 </div>
               </div>
@@ -110,7 +110,8 @@ export const ProjectsSection = () => {
         </div>
 
         {/* Other Projects Grid with bullet-point layout */}
-        <div className="grid md:grid-cols-2 gap-8">
+        {otherProjects.length > 0 && (
+          <div className="grid md:grid-cols-2 gap-8">
           {otherProjects.map((project, index) => (
             <div key={index} className="p-7 bg-background-tertiary/10 border border-white/5 hover:border-emerald-500/20 hover:bg-background-tertiary/30 transition-all duration-300 rounded-2xl shadow-sm group flex flex-col justify-between hover:translate-y-[-2px]">
               <div className="space-y-6">
@@ -161,7 +162,8 @@ export const ProjectsSection = () => {
               </div>
             </div>
           ))}
-        </div>
+          </div>
+        )}
 
       </div>
     </section>

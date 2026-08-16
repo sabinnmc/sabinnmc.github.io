@@ -9,7 +9,7 @@ import { LuMail, LuMapPinned, LuLoader } from "react-icons/lu";
 import { contactConfig } from '@/data/portfolioData';
 
 export const ContactSection = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const email = atob(contactConfig.encodedEmail);
 
   const [formData, setFormData] = useState({
@@ -26,11 +26,13 @@ export const ContactSection = () => {
   };
 
   const openMailtoFallback = (decodedEmail: string) => {
+    const messageBody = language === 'jp'
+      ? `バンダリ サビン 様\n\n${formData.message}\n\nよろしくお願いいたします。\n${formData.name}\nメールアドレス：${formData.email}`
+      : `Hi Sabin,\n\n${formData.message}\n\nBest regards,\n${formData.name}\nEmail: ${formData.email}`;
+
     const mailtoUrl = `mailto:${decodedEmail}?subject=${encodeURIComponent(
       formData.subject
-    )}&body=${encodeURIComponent(
-      `Hi Sabin,\n\n${formData.message}\n\nBest regards,\n${formData.name}\nEmail: ${formData.email}`
-    )}`;
+    )}&body=${encodeURIComponent(messageBody)}`;
     window.location.assign(mailtoUrl);
   };
 
@@ -38,7 +40,7 @@ export const ContactSection = () => {
     e.preventDefault();
 
     if (!formData.name || !formData.email || !formData.subject || !formData.message) {
-      toast.error("Validation Error: Please fill out all fields in the contact form.");
+      toast.error(t('contact.toast.validation'));
       return;
     }
 
@@ -54,31 +56,31 @@ export const ContactSection = () => {
         },
         body: JSON.stringify(formData)
       })
-      .then((response) => {
-        setIsSubmitting(false);
-        if (response.ok) {
-          toast.success("Message sent successfully! Thank you.");
-          setFormData({
-            name: '',
-            email: '',
-            subject: '',
-            message: ''
-          });
-        } else {
-          toast.error("Formspree submission failed. Opening email client fallback...");
+        .then((response) => {
+          setIsSubmitting(false);
+          if (response.ok) {
+            toast.success(t('contact.toast.sent'));
+            setFormData({
+              name: '',
+              email: '',
+              subject: '',
+              message: ''
+            });
+          } else {
+            toast.error(t('contact.toast.formspree_fallback'));
+            openMailtoFallback(email);
+          }
+        })
+        .catch(() => {
+          setIsSubmitting(false);
+          toast.error(t('contact.toast.connection_fallback'));
           openMailtoFallback(email);
-        }
-      })
-      .catch(() => {
-        setIsSubmitting(false);
-        toast.error("Connection error. Opening email client fallback...");
-        openMailtoFallback(email);
-      });
+        });
     } else {
       // Safe fallback via mailto after a sleek loading state
       setTimeout(() => {
         setIsSubmitting(false);
-        toast.success("Opening your mail client safely with your message pre-filled. Thank you!");
+        toast.success(t('contact.toast.mail_fallback'));
         openMailtoFallback(email);
         setFormData({
           name: '',
@@ -124,9 +126,6 @@ export const ContactSection = () => {
           <h2 className="text-4xl lg:text-5xl font-bold mb-6">
             <span className="gradient-text">{t('contact.title')}</span>
           </h2>
-          <p className="text-lg text-foreground-secondary max-w-2xl mx-auto">
-            {t('contact.description')}
-          </p>
         </div>
 
         <div className="max-w-4xl mx-auto">
@@ -168,21 +167,21 @@ export const ContactSection = () => {
               {/* Download Resume - Flattened card */}
               <div className="p-6 bg-background-tertiary/15 border border-white/5 hover:border-primary/20 rounded-2xl transition-all duration-300">
                 <div className="text-center space-y-4">
-                  <h3 className="text-lg font-bold text-slate-200">Resume / CV</h3>
+                  <h3 className="text-lg font-bold text-slate-200">{t('contact.resume.title')}</h3>
                   <p className="text-xs text-slate-400 leading-relaxed max-w-sm mx-auto">
-                    Download my resume to learn more about my experience and skills.
+                    {t('contact.resume.description')}
                   </p>
                   <div className="flex gap-3">
                     <a href={englishCV} download className="flex-1">
                       <Button variant="outline" className="w-full flex items-center justify-center gap-2 cursor-pointer py-2 text-xs">
                         <FaDownload className="w-3.5 h-3.5" />
-                        English CV
+                        {t('contact.resume.english')}
                       </Button>
                     </a>
                     <a href={japaneseCV} download className="flex-1">
                       <Button variant="outline" className="w-full flex items-center justify-center gap-2 cursor-pointer py-2 text-xs">
                         <FaDownload className="w-3.5 h-3.5" />
-                        日本語履歴書
+                        {t('contact.resume.japanese')}
                       </Button>
                     </a>
                   </div>
@@ -193,11 +192,11 @@ export const ContactSection = () => {
             {/* Contact Form - Crisp, sleek, dark container */}
             <div className="p-8 bg-background-tertiary/20 border border-white/5 rounded-2xl relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-2xl pointer-events-none" />
-              
+
               <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
                 <div className="space-y-2">
                   <label htmlFor="name" className="text-xs font-bold uppercase tracking-wider text-slate-400">
-                    Name
+                    {t('contact.form.name')}
                   </label>
                   <input
                     type="text"
@@ -206,14 +205,14 @@ export const ContactSection = () => {
                     value={formData.name}
                     onChange={handleChange}
                     className="w-full p-3.5 rounded-lg bg-slate-950/60 border border-white/5 focus:border-primary/50 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:outline-none transition-smooth text-slate-200 placeholder-slate-600 text-sm"
-                    placeholder="Your name"
+                    placeholder={t('contact.form.name_placeholder')}
                     disabled={isSubmitting}
                   />
                 </div>
 
                 <div className="space-y-2">
                   <label htmlFor="email" className="text-xs font-bold uppercase tracking-wider text-slate-400">
-                    Email
+                    {t('contact.form.email')}
                   </label>
                   <input
                     type="email"
@@ -222,14 +221,14 @@ export const ContactSection = () => {
                     value={formData.email}
                     onChange={handleChange}
                     className="w-full p-3.5 rounded-lg bg-slate-950/60 border border-white/5 focus:border-primary/50 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:outline-none transition-smooth text-slate-200 placeholder-slate-600 text-sm"
-                    placeholder="your.email@example.com"
+                    placeholder={t('contact.form.email_placeholder')}
                     disabled={isSubmitting}
                   />
                 </div>
 
                 <div className="space-y-2">
                   <label htmlFor="subject" className="text-xs font-bold uppercase tracking-wider text-slate-400">
-                    Subject
+                    {t('contact.form.subject')}
                   </label>
                   <input
                     type="text"
@@ -238,14 +237,14 @@ export const ContactSection = () => {
                     value={formData.subject}
                     onChange={handleChange}
                     className="w-full p-3.5 rounded-lg bg-slate-950/60 border border-white/5 focus:border-primary/50 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:outline-none transition-smooth text-slate-200 placeholder-slate-600 text-sm"
-                    placeholder="Project collaboration"
+                    placeholder={t('contact.form.subject_placeholder')}
                     disabled={isSubmitting}
                   />
                 </div>
 
                 <div className="space-y-2">
                   <label htmlFor="message" className="text-xs font-bold uppercase tracking-wider text-slate-400">
-                    Message
+                    {t('contact.form.message')}
                   </label>
                   <textarea
                     id="message"
@@ -253,7 +252,7 @@ export const ContactSection = () => {
                     value={formData.message}
                     onChange={handleChange}
                     className="w-full p-3.5 rounded-lg bg-slate-950/60 border border-white/5 focus:border-primary/50 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:outline-none transition-smooth resize-none text-slate-200 placeholder-slate-600 text-sm"
-                    placeholder="How can I help you?"
+                    placeholder={t('contact.form.message_placeholder')}
                     disabled={isSubmitting}
                   />
                 </div>
@@ -262,12 +261,12 @@ export const ContactSection = () => {
                   {isSubmitting ? (
                     <>
                       <LuLoader className="w-5 h-5 animate-spin text-primary" />
-                      Sending...
+                      {t('contact.form.sending')}
                     </>
                   ) : (
                     <>
                       <LuMail className="w-5 h-5" />
-                      Send Message
+                      {t('contact.form.submit')}
                     </>
                   )}
                 </Button>

@@ -37,7 +37,7 @@ export const HeroSection = () => {
           <div className="space-y-6">
             <h1 className="text-6xl sm:text-7xl lg:text-8xl font-extrabold tracking-tight leading-none animate-reveal-delay-1">
               <span className="gradient-text animate-gradient-shifting bg-gradient-to-r from-emerald-400 via-teal-300 to-amber-400 bg-[size:200%_auto] text-transparent bg-clip-text drop-shadow-[0_2px_15px_rgba(52,211,153,0.25)]">
-                Sabin Bhandari
+                {heroData.name[language]}
               </span>
             </h1>
             
@@ -63,7 +63,7 @@ export const HeroSection = () => {
               asChild
               className="shimmer-hover bg-gradient-to-r from-emerald-500 via-teal-500 to-amber-500 hover:from-emerald-400 hover:via-teal-400 hover:to-amber-400 text-white font-semibold border border-emerald-400/20 shadow-lg shadow-emerald-500/20 hover:shadow-emerald-400/40 hover:-translate-y-1 transform transition-all duration-300 px-10 rounded-full"
             >
-              <a href={`mailto:${email}?subject=Job%20Inquiry%20-%20Sabin%20Bhandari`} className="flex items-center justify-center gap-2.5">
+              <a href={`mailto:${email}?subject=${encodeURIComponent(t('hero.mail_subject'))}`} className="flex items-center justify-center gap-2.5">
                 <FaBriefcase className="w-5 h-5" />
                 {t('hero.hire')}
               </a>
@@ -82,18 +82,18 @@ export const HeroSection = () => {
           {/* Social Links & More Projects */}
           <div className="flex flex-col items-center gap-6 pt-4 animate-reveal-delay-3 w-full">
             <div className="flex gap-4.5 justify-center">
-              <a href={contactConfig.github} target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform duration-300" aria-label="GitHub Profile">
-                <Button variant="glass" size="icon" className="border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:text-primary rounded-full shadow-md" aria-label="GitHub Profile">
+              <a href={contactConfig.github} target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform duration-300" aria-label={t('hero.github_aria')}>
+                <Button variant="glass" size="icon" className="border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:text-primary rounded-full shadow-md" aria-label={t('hero.github_aria')}>
                   <FaGithub className="w-5 h-5" />
                 </Button>
               </a>
-              <a href={contactConfig.linkedin} target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform duration-300" aria-label="LinkedIn Profile">
-                <Button variant="glass" size="icon" className="border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:text-primary rounded-full shadow-md" aria-label="LinkedIn Profile">
+              <a href={contactConfig.linkedin} target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform duration-300" aria-label={t('hero.linkedin_aria')}>
+                <Button variant="glass" size="icon" className="border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:text-primary rounded-full shadow-md" aria-label={t('hero.linkedin_aria')}>
                   <FaLinkedinIn className="w-5 h-5" />
                 </Button>
               </a>
-              <a href={`mailto:${email}`} className="hover:scale-110 transition-transform duration-300" aria-label="Send Email">
-                <Button variant="glass" size="icon" className="border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:text-primary rounded-full shadow-md" aria-label="Send Email">
+              <a href={`mailto:${email}`} className="hover:scale-110 transition-transform duration-300" aria-label={t('hero.email_aria')}>
+                <Button variant="glass" size="icon" className="border-white/10 hover:border-primary/50 hover:bg-primary/10 hover:text-primary rounded-full shadow-md" aria-label={t('hero.email_aria')}>
                   <LuMail className="w-5 h-5" />
                 </Button>
               </a>
