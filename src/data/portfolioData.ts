@@ -10,7 +10,6 @@ export type LocalizedString = {
 
 export interface Skill {
     name: LocalizedString;
-    level: number;
 }
 
 export interface SkillCategory {
@@ -53,10 +52,10 @@ export const skillCategories: SkillCategory[] = [
         color: 'text-primary',
         bgColor: 'bg-primary/10',
         skills: [
-            { name: { en: 'Renesas MCU', jp: 'ルネサス製マイコン' }, level: 5 },
-            { name: { en: 'Verdin-iMX8M Plus', jp: 'バルダン-iMX8M Plus' }, level: 5 },
-            { name: { en: 'IoT Development', jp: 'IoT開発' }, level: 4 },
-            { name: { en: 'Sensor Integration', jp: 'センサー統合' }, level: 5 }
+            { name: { en: 'Renesas MCU', jp: 'ルネサス製マイコン' } },
+            { name: { en: 'Verdin-iMX8M Plus', jp: 'バルダン-iMX8M Plus' } },
+            { name: { en: 'IoT Development', jp: 'IoT開発' } },
+            { name: { en: 'Sensor Integration', jp: 'センサー統合' } }
         ]
     },
     {
@@ -65,16 +64,16 @@ export const skillCategories: SkillCategory[] = [
         color: 'text-accent',
         bgColor: 'bg-accent/10',
         skills: [
-            { name: { en: 'High Voltage Systems', jp: '高電圧システム' }, level: 5 },
-            { name: { en: 'Power Systems', jp: '電力システム' }, level: 5 },
-            { name: { en: 'Circuit Analysis', jp: '回路解析' }, level: 5 },
-            { name: { en: 'Signal Analysis', jp: '信号解析' }, level: 4 },
-            { name: { en: 'Transmission Lines', jp: '送電線' }, level: 5 },
-            { name: { en: 'Power Transformers', jp: '電力用変圧器' }, level: 4 },
-            { name: { en: 'Circuit Breakers', jp: '遮断器' }, level: 4 },
-            { name: { en: 'Electrical Testing', jp: '電気試験' }, level: 5 },
-            { name: { en: 'Logic Control Units', jp: 'ロジックコントロールユニット' }, level: 4 },
-            { name: { en: 'Hydropower Systems', jp: '水力発電システム' }, level: 4 }
+            { name: { en: 'High Voltage Systems', jp: '高電圧システム' } },
+            { name: { en: 'Power Systems', jp: '電力システム' } },
+            { name: { en: 'Circuit Analysis', jp: '回路解析' } },
+            { name: { en: 'Signal Analysis', jp: '信号解析' } },
+            { name: { en: 'Transmission Lines', jp: '送電線' } },
+            { name: { en: 'Power Transformers', jp: '電力用変圧器' } },
+            { name: { en: 'Circuit Breakers', jp: '遮断器' } },
+            { name: { en: 'Electrical Testing', jp: '電気試験' } },
+            { name: { en: 'Logic Control Units', jp: 'ロジックコントロールユニット' } },
+            { name: { en: 'Hydropower Systems', jp: '水力発電システム' } }
         ]
     },
     {
@@ -83,19 +82,19 @@ export const skillCategories: SkillCategory[] = [
         color: 'text-success',
         bgColor: 'bg-success/10',
         skills: [
-            { name: { en: 'C Programming', jp: 'C言語' }, level: 5 },
-            { name: { en: 'Embedded C', jp: '組み込みC' }, level: 5 },
-            { name: { en: 'Assembly Language', jp: 'アセンブリ言語' }, level: 3 },
-            { name: { en: 'HTML/CSS', jp: 'HTML/CSS' }, level: 4 },
-            { name: { en: 'JavaScript', jp: 'JavaScript' }, level: 4 },
-            { name: { en: 'Python', jp: 'Python' }, level: 4 },
-            { name: { en: 'Computer Vision', jp: 'コンピュータビジョン' }, level: 3 },
-            { name: { en: 'YOLOX', jp: 'YOLOX' }, level: 4 },
-            { name: { en: 'Signal Processing', jp: '信号処理' }, level: 4 },
-            { name: { en: 'Debugging', jp: 'デバッグ' }, level: 5 },
-            { name: { en: 'Linux', jp: 'リナックス' }, level: 4 },
-            { name: { en: 'Docker', jp: 'ドッカー' }, level: 4 },
-            { name: { en: 'Machine learning', jp: '機械学習' }, level: 4 }
+            { name: { en: 'C Programming', jp: 'C言語' } },
+            { name: { en: 'Embedded C', jp: '組み込みC' } },
+            { name: { en: 'Assembly Language', jp: 'アセンブリ言語' } },
+            { name: { en: 'HTML/CSS', jp: 'HTML/CSS' } },
+            { name: { en: 'JavaScript', jp: 'JavaScript' } },
+            { name: { en: 'Python', jp: 'Python' } },
+            { name: { en: 'Computer Vision', jp: 'コンピュータビジョン' } },
+            { name: { en: 'YOLOX', jp: 'YOLOX' } },
+            { name: { en: 'Signal Processing', jp: '信号処理' } },
+            { name: { en: 'Debugging', jp: 'デバッグ' } },
+            { name: { en: 'Linux', jp: 'リナックス' } },
+            { name: { en: 'Docker', jp: 'ドッカー' } },
+            { name: { en: 'Machine learning', jp: '機械学習' } }
         ]
     },
     {
@@ -104,16 +103,16 @@ export const skillCategories: SkillCategory[] = [
         color: 'text-warning',
         bgColor: 'bg-warning/10',
         skills: [
-            { name: { en: 'e² studio', jp: 'e² studio' }, level: 5 },
-            { name: { en: 'LTspice', jp: 'LTspice' }, level: 5 },
-            { name: { en: 'CSiEDA5', jp: 'CSiEDA5' }, level: 4 },
-            { name: { en: 'AutoCAD', jp: 'AutoCAD' }, level: 4 },
-            { name: { en: 'ArcGIS', jp: 'ArcGIS' }, level: 4 },
-            { name: { en: 'VS Code', jp: 'VS Code' }, level: 5 },
-            { name: { en: 'Oscilloscopes', jp: 'オシロスコープ' }, level: 5 },
-            { name: { en: 'Logic Analyzers', jp: 'ロジックアナライザ' }, level: 4 },
-            { name: { en: 'Multimeters', jp: 'マルチメータ' }, level: 5 },
-            { name: { en: 'Power Analyzers', jp: '電力アナライザ' }, level: 4 }
+            { name: { en: 'e² studio', jp: 'e² studio' } },
+            { name: { en: 'LTspice', jp: 'LTspice' } },
+            { name: { en: 'CSiEDA5', jp: 'CSiEDA5' } },
+            { name: { en: 'AutoCAD', jp: 'AutoCAD' } },
+            { name: { en: 'ArcGIS', jp: 'ArcGIS' } },
+            { name: { en: 'VS Code', jp: 'VS Code' } },
+            { name: { en: 'Oscilloscopes', jp: 'オシロスコープ' } },
+            { name: { en: 'Logic Analyzers', jp: 'ロジックアナライザ' } },
+            { name: { en: 'Multimeters', jp: 'マルチメータ' } },
+            { name: { en: 'Power Analyzers', jp: '電力アナライザ' } }
         ]
     }
 ];
@@ -156,7 +155,7 @@ export const experiences: Experience[] = [
         type: { en: 'Full-time', jp: 'フルタイム' },
         description: { en: 'Working on embedded systems development with a team of 40 engineers, focusing on IoT applications, sensor systems, and microcontroller programming.', jp: '40名規模のエンジニアチームで組み込みシステム開発に従事し、IoTアプリケーション、センサーシステム、マイコンプログラミングを中心に担当しています。' },
         achievements: [
-            { en: 'Fine tuned RTMPose for 8 keypoint container detection of truck/trailer in real time for parking support on warehouse', jp: '倉庫での駐車支援向けに、トラック／トレーラーの8キーポイントコンテナ検出用RTMPoseをリアルタイムでファインチューニング' },
+            { en: 'Adapted RTMPose to estimate eight truck-container corner keypoints for warehouse parking support, combining synthetic-data training with real-image fine-tuning. Achieved a best validation AP of 78.22 (0–100 points) at epoch 69.', jp: '倉庫での駐車支援に向け、合成データによる学習と実画像でのファインチューニングを組み合わせ、RTMPoseでトラックコンテナの8頂点を推定。69エポック目に検証APの最高値78.22（0〜100ポイント）を達成。' },
             { en: 'Multi-Camera Alignment & Calibration: Designed a homography-based system to align dual fisheye camera feeds, enabling precise perspective registration for container tracking.', jp: 'マルチカメラ位置合わせ・キャリブレーション：2台の魚眼カメラ映像を整合するホモグラフィベースのシステムを設計し、コンテナ追跡に必要な高精度な透視変換位置合わせを実現。' },
             { en: 'Fine-tuned and deployed YOLOX for real-time human detection on fisheye camera images, achieving 74% mAP', jp: '魚眼カメラ画像を用いたリアルタイム人物検出向けYOLOXモデルをファインチューニング・デプロイし、mAP 74%を達成' },
             { en: 'Testing and debugging camera applications for public vehicle image detection systems', jp: '車両画像検出システム向けカメラアプリケーションのテスト・デバッグ' },
@@ -165,7 +164,7 @@ export const experiences: Experience[] = [
             { en: 'Electrical design using LTspice and CSiEDA software', jp: 'LTspiceとCSiEDAを用いた電気設計' },
             { en: 'Laser sensor testing and validation', jp: 'レーザーセンサーの試験および検証' }
         ],
-        technologies: ['RTMPose', 'YOLOX', 'Homography', 'Fisheye Cameras', 'Object Tracking', 'Machine Learning', 'Renesas MCU', 'R7FA6T1AD3CFP', 'e² studio', 'LTspice', 'CSiEDA', 'VS Code']
+        technologies: ['RTMPose', 'MMPose', 'PyTorch', 'Docker', 'YOLOX', 'Homography', 'Fisheye Cameras', 'Object Tracking', 'Machine Learning', 'Renesas MCU', 'R7FA6T1AD3CFP', 'e² studio', 'LTspice', 'CSiEDA', 'VS Code']
     },
     {
         title: { en: 'Educator', jp: '教育者' },

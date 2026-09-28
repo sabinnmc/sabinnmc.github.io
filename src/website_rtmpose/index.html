@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Truck Container Keypoint Detection | Portfolio Preview</title>
+  <style>
+    * { box-sizing: border-box; }
+    [hidden] { display: none !important; }
+    body { margin: 0; background: #060c18; color: #edf3f8; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    main { width: min(1080px, calc(100% - 48px)); margin: 72px auto; }
+    .section-label { margin: 0 0 20px; color: #91a3b6; font-size: 12px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; }
+    .truck-project { border: 1px solid #203345; border-radius: 24px; overflow: hidden; background: #0d1625; box-shadow: 0 24px 80px #0003; }
+    .truck-project .content { padding: 36px 40px 24px; }
+    .truck-project .eyebrow { color: #68ddb4; font-size: 11px; font-weight: 650; letter-spacing: .13em; text-transform: uppercase; margin: 0 0 14px; }
+    .truck-project h1 { font-size: clamp(26px, 3.3vw, 38px); line-height: 1.2; letter-spacing: -.035em; font-weight: 650; margin: 0; max-width: 780px; }
+    .truck-project .subtitle { margin: 12px 0 0; font-size: 15px; color: #a5b5c8; line-height: 1.65; }
+    .truck-project .comparison { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; padding: 0 40px; }
+    .truck-project figure { margin: 0; min-width: 0; }
+    .truck-project .image-frame { aspect-ratio: 16 / 10; position: relative; display: grid; place-items: center; background: #111e2f; border: 1px solid #2b3d51; border-radius: 12px; overflow: hidden; }
+    .truck-project .image-frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
+    .truck-project .placeholder { text-align: center; color: #8093aa; padding: 28px; max-width: 320px; font-size: 13px; line-height: 1.7; }
+    .truck-project .placeholder svg { display: block; width: 44px; height: 44px; margin: 0 auto 16px; color: #506980; }
+    .truck-project .placeholder strong { display: block; margin-bottom: 5px; font-size: 15px; color: #afc1d3; font-weight: 500; }
+    .truck-project figcaption { margin: 12px 0 0; display: flex; align-items: center; gap: 9px; font-size: 12px; color: #bbcada; }
+    .truck-project .number { font-size: 10px; color: #6be0b8; border: 1px solid #2e514b; border-radius: 5px; padding: 2px 5px; }
+    .truck-project .description { padding: 24px 40px 26px; margin: 0; max-width: 880px; color: #bcc8d7; line-height: 1.8; font-size: 15px; }
+    .truck-project .bottom { margin: 0 40px; padding: 22px 0; border-top: 1px solid #253346; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .truck-project .metric { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+    .truck-project .metric strong { font-size: 30px; letter-spacing: -.04em; color: #73e4bc; font-weight: 650; }
+    .truck-project .metric span { font-size: 12px; color: #a9bbcc; }
+    .truck-project .tags { color: #8499af; font-size: 12px; line-height: 1.8; text-align: right; }
+    .truck-project details { border-top: 1px solid #253346; }
+    .truck-project summary { padding: 19px 40px; color: #77dfbd; cursor: pointer; list-style: none; font-size: 13px; display: flex; justify-content: space-between; align-items: center; }
+    .truck-project summary::-webkit-details-marker { display: none; }
+    .truck-project summary:hover { background: #142333; }
+    .truck-project summary:focus-visible { outline: 2px solid #77dfbd; outline-offset: -4px; }
+    .truck-project summary::after { content: "+"; font-size: 23px; font-weight: 300; }
+    .truck-project details[open] summary::after { content: "−"; }
+    .truck-project .results { padding: 0 24px 24px; }
+    .truck-project .chart-frame { background: #fff; border-radius: 10px; overflow: hidden; }
+    .truck-project .chart-frame img { display: block; width: 100%; height: auto; }
+    .truck-project .chart-placeholder { margin: 0; padding: 52px 24px; color: #526174; text-align: center; line-height: 1.7; font-size: 14px; }
+    .truck-project .result-note { font-size: 12px; line-height: 1.7; color: #99abc0; margin: 14px 4px 0; }
+    @media (max-width: 650px) {
+      main { width: calc(100% - 28px); margin: 28px auto; }
+      .truck-project { border-radius: 18px; }
+      .truck-project .content { padding: 26px 22px 20px; }
+      .truck-project .comparison { grid-template-columns: 1fr; padding: 0 22px; gap: 22px; }
+      .truck-project .description { padding: 22px; font-size: 14px; }
+      .truck-project .bottom { margin: 0 22px; align-items: flex-start; flex-direction: column; gap: 10px; }
+      .truck-project .tags { text-align: left; }
+      .truck-project summary { padding: 18px 22px; }
+      .truck-project .results { padding: 0 12px 16px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="section-label">Featured project</p>
+    <article class="truck-project" aria-labelledby="project-title">
+      <header class="content">
+        <p class="eyebrow">Computer vision · Synthetic-to-real learning</p>
+        <h1 id="project-title">Truck Container Keypoint Detection</h1>
+        <p class="subtitle">Adapting RTMPose from synthetic training data to real truck images.</p>
+      </header>
+
+      <!-- Put your own images beside this HTML file using these two names. -->
+      <div class="comparison">
+        <figure>
+          <div class="image-frame">
+            <div class="placeholder">
+              <svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><rect x="5" y="7" width="30" height="26" rx="3" stroke="currentColor" stroke-width="1.4"/><path d="m6 27 10-10 8 8 5-5 6 6" stroke="currentColor" stroke-width="1.4"/><circle cx="27" cy="14" r="2" fill="currentColor"/></svg>
+              <strong>Synthetic image</strong>
+              Place one rendered truck-container training example here.
+            </div>
+            <img src="synthetic-example.jpg" alt="Synthetic truck-container image used as a training-data example" onload="this.previousElementSibling.hidden=true" onerror="this.hidden=true">
+          </div>
+          <figcaption><span class="number">01</span> Synthetic training data</figcaption>
+        </figure>
+        <figure>
+          <div class="image-frame">
+            <div class="placeholder">
+              <svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="m8 14 19-6 6 6v16l-20 5-5-6V14Zm0 0 5 5 20-5M13 19v16M27 8v16l-19 5m19-5 6 6" stroke="currentColor" stroke-width="1.4"/><g fill="currentColor"><circle cx="8" cy="14" r="2"/><circle cx="27" cy="8" r="2"/><circle cx="33" cy="14" r="2"/><circle cx="13" cy="19" r="2"/><circle cx="8" cy="29" r="2"/><circle cx="27" cy="24" r="2"/><circle cx="33" cy="30" r="2"/><circle cx="13" cy="35" r="2"/></g></svg>
+              <strong>Real-image prediction</strong>
+              Place a real truck photo with the model’s predicted keypoints here.
+            </div>
+            <img src="real-prediction.jpg" alt="Real truck-container image with eight model-predicted corner keypoints and connecting edges" onload="this.previousElementSibling.hidden=true" onerror="this.hidden=true">
+          </div>
+          <figcaption><span class="number">02</span> Real-image prediction</figcaption>
+        </figure>
+      </div>
+
+      <p class="description">I adapted RTMPose to estimate eight truck-container corner keypoints, combining synthetic-data training with real-image fine-tuning for warehouse parking-support applications.</p>
+      <div class="bottom">
+        <div class="metric"><strong>78.22</strong><span>Best validation AP · 0–100 points</span></div>
+        <div class="tags">RTMPose · MMPose · PyTorch · Docker</div>
+      </div>
+
+      <details>
+        <summary>View results</summary>
+        <div class="results">
+          <div class="chart-frame">
+            <p class="chart-placeholder">Place the English performance chart here.<br>It will be shown at full width without cropping.</p>
+            <img src="accuracy_chart.png" alt="Validation AP and training accuracy across 80 epochs; lines show ten-epoch averages" onload="this.previousElementSibling.hidden=true" onerror="this.hidden=true">
+          </div>
+          <p class="result-note">Best validation AP: 78.22 at epoch 69. Curves show 10-epoch averages; headline metrics use the original logged values. Training accuracy is separate from validation performance.</p>
+        </div>
+      </details>
+    </article>
+  </main>
+</body>
+</html>

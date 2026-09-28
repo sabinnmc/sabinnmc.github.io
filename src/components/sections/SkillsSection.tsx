@@ -11,7 +11,6 @@ interface CoreSkill {
   icon: IconType;
   title: { en: string; jp: string };
   desc: { en: string; jp: string };
-  depthPercent: number;
   badge: { en: string; jp: string };
   colorClass: string;
   bgClass: string;
@@ -30,7 +29,6 @@ export const SkillsSection = () => {
         en: 'Firmware optimization, register-level chattering signal analysis, and hardware debugging using e² studio on R7FA microcontrollers.',
         jp: 'R7FAマイコンを対象とした、レジスタレベルのチャタリング信号解析、ファームウェアの最適化、およびe² studioを用いた実機デバッグ。'
       },
-      depthPercent: 95,
       badge: { en: 'Microcontrollers', jp: 'マイコン' },
       colorClass: 'text-emerald-400',
       bgClass: 'bg-emerald-500/10'
@@ -42,7 +40,6 @@ export const SkillsSection = () => {
         en: 'Developing ultra-low overhead register drivers, assembly interfaces, and highly deterministic systems in C/Embedded C.',
         jp: 'C／組み込みCによる低オーバーヘッドのレジスタ制御ドライバ、アセンブリ連携インターフェース、および決定論的システムの開発。'
       },
-      depthPercent: 95,
       badge: { en: 'Firmware', jp: 'ファームウェア' },
       colorClass: 'text-primary',
       bgClass: 'bg-primary/10'
@@ -54,7 +51,6 @@ export const SkillsSection = () => {
         en: 'Fine-tuning and deploying YOLOX for real-time human detection on fisheye camera feeds, with homography-based multi-camera alignment and object tracking.',
         jp: '魚眼カメラ映像を用いたリアルタイム人物検出向けYOLOXモデルのファインチューニングとデプロイ、およびホモグラフィによるマルチカメラ位置合わせ・物体追跡。'
       },
-      depthPercent: 85,
       badge: { en: 'Vision AI', jp: '画像認識AI' },
       colorClass: 'text-cyan-400',
       bgClass: 'bg-cyan-500/10'
@@ -66,7 +62,6 @@ export const SkillsSection = () => {
         en: 'Designing high/low voltage electrical systems, performing analog circuit analysis, and run-time validation via LTspice modeling.',
         jp: '高圧・低圧電気システムの設計、アナログ回路解析、およびLTspiceモデルを用いた動作検証。'
       },
-      depthPercent: 90,
       badge: { en: 'Electrical Design', jp: '電気回路設計' },
       colorClass: 'text-amber-400',
       bgClass: 'bg-amber-500/10'
@@ -78,7 +73,6 @@ export const SkillsSection = () => {
         en: 'Practical surveying and electrical planning of 220kV/132kV transmission lines, substations, and industrial power distribution.',
         jp: '220kV・132kV送電線、変電設備、産業用配電網の現地調査および電気設計。'
       },
-      depthPercent: 90,
       badge: { en: 'Power Systems', jp: '電力システム' },
       colorClass: 'text-sky-400',
       bgClass: 'bg-sky-500/10'
@@ -90,7 +84,6 @@ export const SkillsSection = () => {
         en: 'Interfacing laser sensors and high-speed cameras, analyzing chattering signals, and using logic analyzers/oscilloscopes.',
         jp: 'レーザーセンサーおよび高速度カメラのインターフェース設計、チャタリング信号の波形解析、ロジックアナライザ・オシロスコープを用いた評価。'
       },
-      depthPercent: 95,
       badge: { en: 'Hardware testing', jp: 'ハードウェア評価・信号解析' },
       colorClass: 'text-rose-400',
       bgClass: 'bg-rose-500/10'
@@ -165,24 +158,12 @@ export const SkillsSection = () => {
                   </h3>
 
                   {/* Description */}
-                  <p className="text-slate-400 text-sm leading-relaxed mb-6">
+                  <p className="text-slate-400 text-sm leading-relaxed">
                     {skill.desc[language]}
                   </p>
                 </div>
 
-                {/* Precision Horizontal Progress Bar */}
-                <div className="space-y-2 pt-4 border-t border-white/5">
-                  <div className="flex justify-between items-center text-[11px] font-semibold">
-                    <span className="text-slate-500">{t('skills.expertise_depth')}</span>
-                    <span className={`${skill.colorClass}`}>{skill.depthPercent}%</span>
-                  </div>
-                  <div className="h-1.5 w-full bg-slate-900/60 rounded-full overflow-hidden">
-                    <div
-                      className={`h-full rounded-full transition-all duration-1000 bg-gradient-to-r from-emerald-500 to-primary`}
-                      style={{ width: `${skill.depthPercent}%` }}
-                    />
-                  </div>
-                </div>
+
               </div>
             );
           })}
@@ -247,14 +228,7 @@ export const SkillsSection = () => {
                             className="flex items-center gap-2.5 px-3 py-1.5 bg-background-secondary/40 hover:bg-background-secondary/80 transition-all duration-200 rounded-lg border border-white/5 group/chip"
                           >
                             <span className="text-xs text-slate-300 group-hover/chip:text-slate-100 font-medium">{skill.name[language]}</span>
-                            <div className="flex gap-0.5 shrink-0">
-                              {[...Array(5)].map((_, i) => (
-                                <div
-                                  key={i}
-                                  className={`w-1 h-1 rounded-full ${i < skill.level ? 'bg-emerald-400' : 'bg-slate-700/60'}`}
-                                />
-                              ))}
-                            </div>
+
                           </div>
                         ))}
                       </div>

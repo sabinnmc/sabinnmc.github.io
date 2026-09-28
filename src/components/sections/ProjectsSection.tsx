@@ -4,6 +4,7 @@ import { Badge } from '@/components/ui/badge';
 import { FaGithub, FaEye } from 'react-icons/fa6';
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { projects } from '@/data/portfolioData';
+import { RTMPoseProject } from '@/components/sections/RTMPoseProject';
 
 export const ProjectsSection = () => {
   const { t, language } = useLanguage();
@@ -31,6 +32,7 @@ export const ProjectsSection = () => {
 
         {/* Featured Projects list with bullet points */}
         <div className={otherProjects.length > 0 ? 'space-y-10 mb-20' : 'space-y-10'}>
+          <RTMPoseProject />
           {featuredProjects.map((project, index) => (
             <div key={index} className="group overflow-hidden bg-background-tertiary/20 hover:bg-background-tertiary/35 border border-white/5 hover:border-emerald-500/25 transition-all duration-500 rounded-2xl shadow-xl shadow-black/40 flex flex-col lg:flex-row">
               

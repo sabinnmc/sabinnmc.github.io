@@ -1,0 +1,76 @@
+PORTFOLIO PRESENTATION — LOCAL PREVIEW
+
+1. Copy this folder to your PC. Double-click index.html to open it in a browser.
+   It works offline, with no installation, build command, or server.
+   The initial placeholders show where your images will appear.
+
+2. Place these three images beside index.html:
+
+   website_preview/
+     index.html
+     synthetic-example.jpg   <- one synthetic truck training image
+     real-prediction.jpg      <- one real image with predicted keypoints
+     accuracy_chart.png      <- English chart from project_summary
+
+   Use actual JPG files for the first two names. If your images are PNG,
+   change the corresponding .jpg names inside index.html to .png instead.
+   Renaming a file extension does not convert an image.
+
+3. Refresh the browser after adding the images. Placeholders disappear
+   automatically. Click "View results" to show the performance chart.
+
+IMAGE CHOICE
+
+- Synthetic: choose a clear rendered container view.
+- Real: choose actual model predictions, preferably on an image not used
+  for training. Do not use ground-truth labels as if they were predictions.
+- Similar viewing angles help the comparison; these are examples of two
+  stages, not before-and-after versions of the same photo.
+- Keep the full container and keypoints visible. No paths, filenames,
+  timestamps, terminal screenshots, or run IDs need to appear in images.
+
+WHAT TO COPY INTO YOUR WEBSITE
+
+This is a presentation reference, not a deployed change to your website.
+Place this project first in Featured Projects, above HAS2.
+
+In your React source, search for "HAS2 - Crane Blind Spot Detection".
+Follow that project's data structure for the title, description and tags.
+The two-image comparison and expandable chart require extending the card's
+rendering: a new project data entry by itself will not add those elements.
+
+Use the article with class "truck-project" as the layout reference.
+Its CSS is scoped to .truck-project; body/main rules are only for this
+standalone preview. Reuse your website's existing section and page styles.
+Use the website's normal project-heading level (typically h3 for a card).
+
+When converting the markup to React:
+- Change class to className.
+- Replace inline onload/onerror strings with React handlers or conditional
+  rendering. The handlers here only support missing-image placeholders.
+- Use your website's image imports or public asset URLs.
+- Keep the details/summary element for the expandable results.
+- Show photos with object-fit: contain so keypoints remain visible.
+- Show the chart with width: 100% and height: auto; no fixed-height crop
+  or dark overlay.
+- Use your existing language system if adding translations later.
+
+FINAL COPY
+
+Title: Truck Container Keypoint Detection
+Subtitle: Adapting RTMPose from synthetic training data to real truck images.
+
+Description: I adapted RTMPose to estimate eight truck-container corner
+keypoints, combining synthetic-data training with real-image fine-tuning
+for warehouse parking-support applications.
+
+Result: 78.22 — Best validation AP (0–100 points)
+Technologies: RTMPose / MMPose / PyTorch / Docker
+Expandable link: View results
+
+BEFORE PUBLISHING
+
+Check both desktop and mobile widths, confirm the three images load,
+and verify that the results section opens using mouse and keyboard.
+Publish through the website repository's existing build/deploy workflow.
+Do not edit the generated, hashed JavaScript files in assets/.
